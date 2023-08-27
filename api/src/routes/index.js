@@ -11,15 +11,16 @@ const types = require('../controllers/types')
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get('/pokemon', pokemons);            // paginado
+router.get('/types', types);                       // ✓ falta agregarlos a la DB
+ 
+router.get('/pokemon', pokemons);                  // paginado
 
-router.get('/pokemon/name', getPokemonsByName);   // ✓
+router.get('/pokemon/name', getPokemonsByName);    // ✓
 
-router.get('/pokemon/:id', getPokemonsById); // buscar por id enviado por params en la API ✓
-router.get('/pokemon/:uuid', getPokemonsById); // buscar por uuid enviado por params en la DB ✓
+router.get('/pokemon/:id', getPokemonsById);       // buscar por id enviado por params en la API ✓
+router.get('/pokemon/:uuid', getPokemonsById);     // buscar por uuid enviado por params en la DB ✓
 
 // router.post('/pokemon', postPokemon)
 
-router.get('/types', types);
 
 module.exports = router;
