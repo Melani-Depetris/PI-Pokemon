@@ -1,34 +1,45 @@
-const { Pokemon } = require('../models/Pokemon');
+const { Pokemon, Type } = require('../db');
 
 const postPokemon = async (req, res) => {
 
-    const { id, name, image, life, height, attack, defense, speed, weight  } = req.body;
+    const { name, image, life, attack, defense, speed, height, weight, type } = req.body; // Destructuro de req.body todos los datos que necesito del nuevo personaje que voy a postear en la db
     console.log(req.body);
 
+    //Ejemplo de "uuid":  "2edcae21-b4ad-43dd-a747-130c52e2866d",
+
     try {
+        // Valido que llegue toda la info requerida para el newpokemon
+        if (name && image && life && attack && defense && speed && height && weight) {
 
-        if (id && name && image && life && attack && defense && speed && height && weight ) {
-
-            const [pokemon, created] = await Pokemon.findOrCreate({
+            // Uso el metodo findOrCreate de los modelos para buscar en la db si lo tengo, y si no. Crearlo.
+            // Construyo el newPokemon  las propiedades del objeto con Shorthand Property Names
+            const [newPokemon, created] = await Pokemon.findOrCreate({
                 where: {
-                    id: id,
+                    name: name,
                 },
                 defaults: {
-
-                    name: name,
-                    image: image,
-                    life: hp,
-                    attack: attack,
-                    defense: defense,
-                    speed: speed,
-                    height: height,
-                    weight: weight
+                    image,
+                    life,
+                    attack,
+                    defense,
+                    speed,
+                    height,
+                    weight
                 }
             })
 
-            const pokemonsAll = await Pokemon.findAll()
+if(type){
+    const foundTypes = await Type.findAll({
+        where: {
+          name: type
+        }
+      });
+      await newPokemon.setTypes(foundTypes)
+}
 
-            created ? res.status(201).json(pokemonsAll) : res.status(200).send('Ya existe')
+            // const pokemonsAll = await Pokemon.findAll()
+
+            created ? res.status(201).json(newPokemon)/*.send('Nuevo pokemon en la Pokédex ')*/ : res.status(200).send('Ya existe en la Pokédex ')
 
         } else {
             res.status(401).send('Faltan datos')

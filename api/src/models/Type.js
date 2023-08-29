@@ -15,8 +15,15 @@ module.exports = (sequelize) => {
 
     },
     name: {
-      type: DataTypes.ENUM('Normal', 'Fire', 'Fighting', 'Water', 'Flying', 'Grass', 'Poison', 'Electric', 'Ground', 'Psychic', 'Rock', 'Ice', 'Bug', 'Dragon', 'Ghost', 'Dark', 'Steel', 'Fairy'),
+      type: DataTypes.STRING,
       allowNull: false
     }
   }, { timestamps: false });
 };
+/*ENUM('normal', 'fighting', 'flying',
+'poison', 'ground', 'rock',
+'bug', 'ghost', 'steel',
+'fire', 'water', 'grass',
+'electric', 'psychic', 'ice',
+'dragon', 'dark', 'fairy',
+'unknown', 'shadow')*/
