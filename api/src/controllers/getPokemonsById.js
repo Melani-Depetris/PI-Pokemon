@@ -8,17 +8,19 @@ const { Pokemon } = require('../db')
 const getPokemonsById = async (req, res) => {
 
     try {
-        let { id } = req.params;
-        let { uuid } = req.params;
-
-        if (uuid) {
+        let { id } = req.params; //Por acá va a llegar uuid y id
+     
+//Si es un uuid busca en la db
+        if (!Number(id)) {
             const pokemon = await Pokemon.findOne({
-                where: { uuid: uuid }
+                where: { uuid: id }
             })
             res.status(200).json(pokemon)
         }
         
-        if (id) {
+//Si es un id(number) busca en la api
+
+        if (Number(id)) {
 
             const { name, sprites, stats, height, weight, types } = (await axios.get(`${URL_BASE}/${id}`)).data
             const pokemon = {
@@ -38,7 +40,7 @@ const getPokemonsById = async (req, res) => {
 
             return pokemon ?
                 res.status(200).json(pokemon) :
-                res.status(404).send('Not found')
+                res.status(404).send('Este Pokemon no existe en la Pokédex')
         }
 
     } catch (error) {

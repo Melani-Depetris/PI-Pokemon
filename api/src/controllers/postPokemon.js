@@ -15,7 +15,7 @@ const postPokemon = async (req, res) => {
             // Construyo el newPokemon  las propiedades del objeto con Shorthand Property Names
             const [newPokemon, created] = await Pokemon.findOrCreate({
                 where: {
-                    name: name,
+                    name,
                 },
                 defaults: {
                     image,
@@ -24,22 +24,23 @@ const postPokemon = async (req, res) => {
                     defense,
                     speed,
                     height,
-                    weight
+                    weight,
                 }
             })
 
-if(type){
-    const foundTypes = await Type.findAll({
-        where: {
-          name: type
-        }
-      });
-      await newPokemon.setTypes(foundTypes)
-}
+            // Acá voy a buscar los types (de Pokémon) en la base de datos según el valor de type que llega por body, que podría ser el tipo del Pokémon que estás creando. Luego, los tipos encontrados se asocian al Pokémon utilizando el método addType. // Dif
+            if (type) {
+                const foundTypes = await Type.findAll({
+                    where: {
+                        name: type
+                    }
+                });
+                await newPokemon.addType(foundTypes)
+            }
 
             // const pokemonsAll = await Pokemon.findAll()
 
-            created ? res.status(201).json(newPokemon)/*.send('Nuevo pokemon en la Pokédex ')*/ : res.status(200).send('Ya existe en la Pokédex ')
+            created ? res.status(201).json(newPokemon)/*.send('Nuevo pokemon en la Pokédex ')*/ : res.status(200).send('Ya existe en la Pokédex')
 
         } else {
             res.status(401).send('Faltan datos')
