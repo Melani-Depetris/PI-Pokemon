@@ -14,18 +14,20 @@ const getAllpokemons = async (req, res) => {
             let URL_BASE = 'https://pokeapi.co/api/v2/pokemon/';
 
             let urlAll = [];
+            let count = 0
             // Itera peticiones a la api destructurando next y results, para sacarle la info a results y pushearla en un array. Y el next para reasignar el valor de URL_BASE
-            while (URL_BASE) {
+            while (URL_BASE && count < 3) {
                 const { next, results } = (await axios.get(URL_BASE)).data
 
                 for (obj of results) {
                     urlAll.push(obj.url)
                 }
+                count++
 
                 URL_BASE = next
             }
 
-            // axiosAll es un array que guarda todos las urls con su promesa
+            // axiosAll es un array que guarda todas las urls con su promesa
             const axiosAll = urlAll.map(e => axios(e))
 
             //resPromise contiene los datos de cada una de las peticiones a la API
@@ -45,7 +47,7 @@ const getAllpokemons = async (req, res) => {
                     speed: e.data.stats[5].base_stat,
                     height: e.data.height,
                     weight: e.data.weight,
-                    types: e.data.types.map(e => e.type.name)
+                    types: e.data.types.map(e => {return{name: e.type.name}})
                 }
             })]
         }
