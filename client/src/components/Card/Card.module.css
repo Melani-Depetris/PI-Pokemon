@@ -1,0 +1,12 @@
+.cardContainer{
+    
+    display: grid;
+    place-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(196, 37, 177, 0.393);
+    margin: 40px;
+    padding: 20px;
+    border-radius: 10px;
+
+}

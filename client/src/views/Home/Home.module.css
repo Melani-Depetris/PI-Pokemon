@@ -1,0 +1,19 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(0, 255, 21);
+    padding: 10px;
+    gap: 10px;
+}
+.buttonPage {
+    padding: 5px;
+    border-radius: 25%;
+    background-color: aquamarine;
+    border: 1px solid #483ae0;
+}
