@@ -1,8 +1,11 @@
-.navBarContainer{
+.navBarContainer {
+    width: 100vw;
+    height: 30px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    height: 30px;
-     background-color: blue;
+    height: 50px;
+    background-color: #9d44c063;
+    position: fixed;
 }

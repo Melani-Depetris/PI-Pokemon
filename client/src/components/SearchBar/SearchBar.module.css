@@ -1,0 +1,11 @@
+.searchContainer{
+    display: flex;
+}
+.searchInput{
+    background-color: none;
+    padding-left: 10px;
+}
+.searchIcon{
+    padding: 2px;
+    border: none;
+}

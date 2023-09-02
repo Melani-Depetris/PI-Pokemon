@@ -5,28 +5,38 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './Home.module.css'
 
+import { useDispatch, useSelector } from 'react-redux'
+
+import {getAllPokemons} from '../../redux/actions'
+
 const POKEMONS_PER_PAGE = 12; // Cantidad de pokémones por página
 
 
 const Home = () => {
 
-    const [pokemons, setPokemons] = useState([]);
+    // const [pokemons, setPokemons] = useState([]);
+    const pokemons = useSelector((state) => state.allPokemons) //Traigo de la store mi estado global
+
     const [currentPage, setCurrentPage] = useState(1);
+    const dispatch = useDispatch() // Para poder hacer dispatch
 
-// El useEffect carga los pokémones desde la API tan pronto como el componente Home se monte.
-//Como el array de dependencias está vacío, este efecto solo se ejecutará una vez al montar el componente.
+    // El useEffect carga los pokémones desde la API tan pronto como el componente Home se monte.
+    //Como el array de dependencias está vacío, este efecto solo se ejecutará una vez al montar el componente.
     useEffect(() => {
-        const allPokemons = async () => {
-            try {
-                const response = (await axios.get(`${URL}pokemons`)).data;
-                setPokemons(response);
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        };
 
-        allPokemons();
-    }, []);
+        dispatch(getAllPokemons())
+
+        // const allPokemons = async () => {
+        //     try {
+        //         const response = (await axios.get(`${URL}pokemons`)).data;
+        //         setPokemons(response);
+        //     } catch (error) {
+        //         console.error('Error:', error);
+        //     }
+        // };
+
+        // allPokemons();
+    }, [dispatch]);
 
     // Lógica para paginación
     const totalPages = Math.ceil(pokemons.length / POKEMONS_PER_PAGE); //Didido la cantidad de pokemons por la cantidad de pokemons por pagina y lo redondeo. Y me da la cantidad de paginas.
@@ -46,7 +56,7 @@ const Home = () => {
                     </button>
                 ))}
             </div>
-                <CardsContainer pokemons={visiblePokemons} />
+            <CardsContainer pokemons={visiblePokemons} />
         </div>
     );
 }

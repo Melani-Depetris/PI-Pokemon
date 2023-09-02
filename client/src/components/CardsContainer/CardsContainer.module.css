@@ -1,5 +1,9 @@
-.cardContainer{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+.cardContainer {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     background-color: aqua;
+    background-size: auto;
 }

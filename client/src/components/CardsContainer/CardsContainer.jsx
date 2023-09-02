@@ -12,6 +12,7 @@ const CardsContainer = ({pokemons}) => {
             id={e.id}
             name={e.name}
             image={e.image}
+            types={e.types}
           />
         })}
     </div>
