@@ -1,0 +1,32 @@
+.aboutContainer {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    z-index: -1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: no-repeat url('../../assets/house3.jpg');
+    gap: 50px;
+
+}
+
+.aboutText {
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(185, 183, 188, 0.739);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.aboutImage {
+    width: 200px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}

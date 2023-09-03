@@ -10,36 +10,23 @@ import { getById } from '../../redux/actions'
 
 
 const Detail = () => {
-
-    // const [detail, setDetai] = useState({})
-    const [isLoading, setIsLoading] = useState(true);
-
-    const detail = useSelector((state) => state.pokemon)
-    const dispatch = useDispatch()
-
+    
     const { id } = useParams()
-    console.log(id);
+    const dispatch = useDispatch()
+    const detail = useSelector((state) => state.pokemon)
+    // const [isLoading, setIsLoading] = useState(true);
+
+    console.log(detail);
 
     useEffect(() => {
 
         dispatch(getById(id))
-        setTimeout(() => {
+        // setTimeout(() => {
 
-            setIsLoading(false)
-        }, 1000);
+        //     setIsLoading(false)
+        // }, 1000);
 
-        // const detailFetch = async () => {
-        //     try {
-        //         const response = (await axios.get(`${URL}pokemons/${id}`)).data;
-        //         setDetai(response);
-        //         setIsLoading(false)
-        //     } catch (error) {
-        //         console.error('Error:', error);
-        //     }
-        // };
-
-        // detailFetch();
-    }, [id]);
+    }, [dispatch, id]);
 
     // console.log(detail);
 
@@ -47,8 +34,8 @@ const Detail = () => {
         <div className={styles.DetailContainer}>
             {/* <h1>Detail</h1> */}
 
-            {
-                isLoading ? <div className={styles.loading} /> :
+            {/* {
+                isLoading ? <div className={styles.loading} /> : }*/}
 
                     <div>
                         <Link to='/home'>
@@ -64,10 +51,10 @@ const Detail = () => {
                             <h3>Speed: {detail.speed}</h3>
                             <h3>Height: {detail.height}</h3>
                             <h3>Weight: {detail.weight}</h3>
-                            <h3>Types: {detail.types?.map(e => e)} </h3>
+                            <h3>Types: {detail.types?.map(e => e.name)} </h3>
                         </div>
                     </div>
-            }
+            
         </div>
     )
 }

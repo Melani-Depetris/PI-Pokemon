@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom'
 import styles from './NavBar.module.css'
 import SearchBar from '../SearchBar/SearchBar'
 
+import pokebola from '../../assets/pokebola.png'
+import exit from '../../assets/exit.png'
+
 const NavBar = () => {
   return (
     <div className={styles.navBarContainer}>
 
       <Link to='/home'>
-        <button>
-          Home
+        <button className={styles.navBarIconHome}>
+          <img src={pokebola} className={styles.navBarImagen}/>
         </button>
       </Link>
 
@@ -27,8 +30,8 @@ const NavBar = () => {
       </Link>
 
       <Link to="/">
-        <button className={styles.buttonExit}>
-          EXIT
+        <button className={styles.navBarIconExit}>
+        <img src={exit} className={styles.navBarImagen}/>
         </button>
       </Link>
     </div>

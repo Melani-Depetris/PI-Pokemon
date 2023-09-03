@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import style from './Card.module.css'
 
-const Card = ({ id, name, image, types }) => {
+const Card = ({ key, id, name, image, types }) => {
   return (
     <div >
       <Link to={`/detail/${id}`}>

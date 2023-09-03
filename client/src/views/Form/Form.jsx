@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import validation from '../../components/validation'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getTypes } from '../../redux/actions'
+import { getTypes, postPokemon} from '../../redux/actions'
 
 import styles from './Form.module.css'
 import iconMas from '../../assets/mas.png'
@@ -26,7 +26,8 @@ const Form = () => {
         defense: '',
         speed: '',
         height: '',
-        weight: ''
+        weight: '',
+        types: []
     });
 
     const [errors, setErrors] = useState({})
@@ -42,27 +43,45 @@ const Form = () => {
         setErrors(validation({ ...pokemonData, [event.target.name]: event.target.value }))
     };
 
-    const [typesSelect, setTypesSelect] = useState([])
-
-    const handleChangeSelect = (event) => {
-        setTypesSelect({ ...typesSelect, [event.target.name]: event.target.value})
-    }
-
     //Esta función se ejecuta cuando en el botón submit del formulario se produce un onClick
 
     const handleSubmit = (event) => {
 
         event.preventDefault(); //le quita el evento de refresh
 
-        login(userData) // Acá hago el dispatch de la funcion que hace el post en la db 
+        dispatch(postPokemon(pokemonData))// Acá hago el dispatch de la funcion que hace el post en la db 
     };
+
+   
+    const [typesSelect, setTypesSelect] = useState([])
+
+    const handleChangeSelect = (event) => {
+        if (event.target.value !== 'Select Type' && !pokemonData.types.includes(event.target.value)) {
+            setPokemonData({
+                ...pokemonData,
+                types: [...pokemonData.types, event.target.value]
+            })
+        }
+        // setTypesSelect({ ...typesSelect, [event.target.name]: event.target.value})
+    }
+    console.log(pokemonData.types);
+
+    const handleCancel = (event) => {
+
+        
+        setPokemonData({
+            ...pokemonData,
+            types: pokemonData.types.filter(e => e !== event.target.value)
+        })
+    }
 
     return (
         <div className={styles.form}>
             <form className={styles.formContainer}>
 
                 <h1>New Pokemón!!</h1>
-                <p>Te pediré algunos datos para agregar a tu nuevo Pokémon a la Pokédex.</p>
+                <h3>¿Estás a punto de capturar un nuevo Pokémon?</h3>
+                <p>Te pediré algunos datos para poder agregarlo a tu Pokédex.</p>
 
                 <label className={styles.label}>Name </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.name} name='name' placeholder='Name' />
@@ -108,15 +127,23 @@ const Form = () => {
 
                 <label for="types">Selecciona que tipo de pokemon es:</label>
 
-                <select id="selectTypes" onChange={handleChangeSelect}>
+                <select className={styles.selectTypes} onChange={(event) => [handleChangeSelect(event), setTypesSelect(event)]} value={typesSelect}>
+                    <option>Select Type</option>
                     {types.map((type, index) => (
-                        <option key={index} value={type}>
+                        <option key={index} >
                             {type.name}
                         </option>
                     ))}
                 </select>
 
-                <button className={styles.buttonSubmit} onClick={handleSubmit}>
+                {pokemonData.types.map(e =>
+                (<div>
+                    <p>{e}</p>
+                    <button value={e} onClick={handleCancel}> x </button>
+                </div>)
+                )}
+
+                <button type='submit' className={styles.buttonSubmit} onClick={handleSubmit}>
                     <img src={iconMas} className={styles.buttonSubmitIcon} />
                 </button>
                 {/* {errors.e10 ? <p>{errors.e10}</p> : <p>Perfecto</p>} */}

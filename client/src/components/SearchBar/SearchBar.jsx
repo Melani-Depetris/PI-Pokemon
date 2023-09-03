@@ -44,7 +44,7 @@ const SearchBar = () => {
             <div className={styles.searchContainer}>
                 <input className={styles.searchInput} name="myInput" type='search' value={name} onChange={handleChange} placeholder='Busca un pokemon'  onKeyPress={handleKeyPress}/>
 
-                <button onClick={() => { onSearch(name); setName('') }}>
+                <button onClick={() => { onSearch(name); setName('') }}  className={styles.searchButton}>
                     <img src={lupa} width='20px' height='20px' className={styles.searchIcon} />
                 </button>
 

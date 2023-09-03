@@ -28,6 +28,7 @@ export const getById = (id) => {
     return async (dispatch) => {
         try {
             const { data } = await axios(`${URL}pokemons/${id}`)
+            console.log(data);
             return dispatch({
                 type: GET_BY_ID,
                 payload: data
@@ -60,6 +61,21 @@ export const getTypes = () => {
             console.log(data);
             return dispatch({
                 type: GET_TYPES,
+                payload: data
+            })
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+}
+
+export const postPokemon = (pokemonData) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post(`${URL}pokemons`, pokemonData)
+            console.log(data);
+            return dispatch({
+                type: POST_POKEMON,
                 payload: data
             })
         } catch (error) {
