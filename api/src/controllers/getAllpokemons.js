@@ -40,6 +40,8 @@ const getAllpokemons = async (req, res) => {
                 return {
                     id: e.data.id,
                     name: e.data.name,
+                    // image: e.data.sprites.other.home.front_shiny,
+                    // imagen: e.data.sprites.other.dream_world.front_default,
                     image: e.data.sprites.front_shiny,
                     life: e.data.stats[0].base_stat,
                     attack: e.data.stats[1].base_stat,
@@ -47,18 +49,24 @@ const getAllpokemons = async (req, res) => {
                     speed: e.data.stats[5].base_stat,
                     height: e.data.height,
                     weight: e.data.weight,
-                    types: e.data.types.map(e => {return{name: e.type.name}})
+                    types: e.data.types.map(e => { return { name: e.type.name } })
                 }
             })]
         }
 
         //Busca en la db los pokemons creados
         let allPokemonsDb = await Pokemon.findAll({
-            include: {          // y le incluye su type
-                model: Type,
-                attibutes: ["name"],
-                through: { attributes: [] } //Evita traer los datos de la tabla intermedia si existe
-            }
+            // include: {          // y le incluye su type
+            //     model: Type,
+            //     attibutes: ["name"],
+            //     through: { attributes: [] } //Evita traer los datos de la tabla intermedia si existe
+            // }
+            include: [ // y le incluye su type
+                {
+                    model: Type,
+                    attributes: ["name"],
+                    through: { attributes: [] } //Evita traer los datos de la tabla intermedia si existe
+                }]
         })
 
         // Asocio la info de estos arrays

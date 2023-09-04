@@ -2,8 +2,8 @@ const { Pokemon, Type } = require('../db');
 
 const postPokemon = async (req, res) => {
 
-    const { name, image, life, attack, defense, speed, height, weight, type } = req.body; // Destructuro de req.body todos los datos que necesito del nuevo personaje que voy a postear en la db
-    console.log(req.body);
+    const { name, image, life, attack, defense, speed, height, weight, types } = req.body; // Destructuro de req.body todos los datos que necesito del nuevo personaje que voy a postear en la db
+    // console.log(req.body);
 
     //Ejemplo de "uuid":  "2edcae21-b4ad-43dd-a747-130c52e2866d",
 
@@ -29,10 +29,10 @@ const postPokemon = async (req, res) => {
             })
 
             // Acá voy a buscar los types (de Pokémon) en la base de datos según el valor de type que llega por body, que podría ser el tipo del Pokémon que estás creando. Luego, los tipos encontrados se asocian al Pokémon utilizando el método addType. // Dif
-            if (type) {
+            if (types) {
                 const foundTypes = await Type.findAll({
                     where: {
-                        name: type
+                        name: types
                     }
                 });
                 await newPokemon.addType(foundTypes)

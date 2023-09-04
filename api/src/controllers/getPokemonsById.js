@@ -1,6 +1,6 @@
 const URL_BASE = 'https://pokeapi.co/api/v2/pokemon';
 const axios = require('axios');
-const { Pokemon } = require('../db')
+const { Pokemon, Type } = require('../db')
 
 
 //Controlador de 2 rutas la que busca por id a la API y la que busca por uuid en la DB
@@ -9,16 +9,35 @@ const getPokemonsById = async (req, res) => {
 
     try {
         let { id } = req.params; //Por acá va a llegar uuid y id
-     
-//Si es un uuid busca en la db
+        console.log(id);
+
+        //Si es un uuid busca en la db
         if (!Number(id)) {
+            console.log('ya entre');
+
             const pokemon = await Pokemon.findOne({
-                where: { uuid: id }
+                where: { id: id },
+                include: [
+                    {
+                        model: Type,
+                        attributes: ["name"],
+                        through: { attributes: [] } // Evita traer los datos de la tabla intermedia si existe
+                    }]
             })
+
+            // const pokemon = await Pokemon.findByPk(id, {
+            //     include: {
+            //         model: Type,
+            //         attributes: ["name"]
+            //     }
+
+            // })
+
+            console.log(pokemon);
             res.status(200).json(pokemon)
         }
-        
-//Si es un id(number) busca en la api
+
+        //Si es un id(number) busca en la api
 
         if (Number(id)) {
 
@@ -34,7 +53,7 @@ const getPokemonsById = async (req, res) => {
                 speed: stats[5].base_stat,
                 height: height,
                 weight: weight,
-                types: types.map(e => e.type.name)
+                types: types.map(e => {return {name: e.type.name}})
 
             }
 

@@ -1,6 +1,6 @@
 const URL_BASE = 'https://pokeapi.co/api/v2/pokemon';
 const axios = require('axios');
-const { Pokemon } = require('../db');
+const { Pokemon, Type } = require('../db');
 
 //Controlador que busca por name en la API y en la DB, la data vien epor query.
 //Ejemplo: http://localhost:3001/pokemons/name?name={name}
@@ -14,7 +14,13 @@ const getPokemonsByName = async (req, res) => {
 
         //Busca en la db el pokemon por name que llega por query
         const pokemon = await Pokemon.findOne({
-            where: { name: name }
+            where: { name: name }, 
+            include: [ 
+            {
+                model: Type,
+                attributes: ["name"],
+                through: { attributes: [] } // Evita traer los datos de la tabla intermedia si existe
+            }]
         })
         //Responde con el pokemon
         if (pokemon) {
