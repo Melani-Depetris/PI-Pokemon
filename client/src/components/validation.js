@@ -9,6 +9,7 @@ export default (data) => {
     const regex = /^[A-Za-z\s]+$/;
     if (!regex.test(data.name)) {
         errors.e1 = 'Ingrese un nombre valido'
+        
     }
 
     const regexImagen = /\.(jpg|jpeg|png|gif|webp|bmp|svg|tiff)$/i;
@@ -39,6 +40,11 @@ export default (data) => {
 
     if(!regexNum.test(data.weight)){
         errors.e8 = 'Su peso puede ser del 1 al 100'
+    }
+
+    console.log(data.types);
+    if(data.types.length === 1){
+        errors.e9 = 'Debe tener al menos 2 types'
     }
 
     // if (!data.name.length || !data.image.length || !data.life.length || !data.attack.length || !data.defense.length || !data.speed.length || !data.height.length || !data.weight.length) {

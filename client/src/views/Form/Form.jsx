@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import validation from '../../components/validation'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getTypes, postPokemon} from '../../redux/actions'
+import { getTypes, postPokemon } from '../../redux/actions'
 
 import styles from './Form.module.css'
 import iconMas from '../../assets/mas.png'
@@ -10,7 +10,7 @@ import iconMas from '../../assets/mas.png'
 
 const Form = () => {
 
-    const types = useSelector((state) => state.types)
+    const typesBD = useSelector((state) => state.types)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -49,26 +49,51 @@ const Form = () => {
 
         event.preventDefault(); //le quita el evento de refresh
 
-        dispatch(postPokemon(pokemonData))// Acá hago el dispatch de la funcion que hace el post en la db 
+        if (errors.e1 || errors.e2 || errors.e3 || errors.e4 || errors.e5 || errors.e6 || errors.e7 || errors.e8 || errors.e9) {
+            alert('Este Pokémon no pudo ser capturado! 🥹')
+        } else {
+            dispatch(postPokemon(pokemonData))
+            alert('Pokémon capturado! 🥰')
+            setPokemonData({
+                name: '',
+                image: '',
+                life: '',
+                attack: '',
+                defense: '',
+                speed: '',
+                height: '',
+                weight: '',
+                types: []
+            })
+        }// Acá hago el dispatch de la funcion que hace el post en la db 
+    
     };
 
-   
+
     const [typesSelect, setTypesSelect] = useState([])
 
     const handleChangeSelect = (event) => {
-        if (event.target.value !== 'Select Type' && !pokemonData.types.includes(event.target.value)) {
+
+        if (event.target.value !== 'Select Type' && !pokemonData.types.includes(event.target.value) && pokemonData.types.length < 4) {
             setPokemonData({
                 ...pokemonData,
                 types: [...pokemonData.types, event.target.value]
             })
+        } else {
+            alert('Solo puede pertenecer a 4 types de Pokemons')
         }
+
+        setErrors(validation({
+            ...pokemonData,
+            types: [...pokemonData.types, event.target.value]
+        }))
         // setTypesSelect({ ...typesSelect, [event.target.name]: event.target.value})
     }
     console.log(pokemonData.types);
 
     const handleCancel = (event) => {
+        event.preventDefault()
 
-        
         setPokemonData({
             ...pokemonData,
             types: pokemonData.types.filter(e => e !== event.target.value)
@@ -126,10 +151,10 @@ const Form = () => {
                 {errors.e8 ? <p>{errors.e8}</p> : <></>}
 
                 <label for="types">Selecciona que tipo de pokemon es:</label>
+                <select className={styles.selectTypes} onChange={(event) => [handleChangeSelect(event), setTypesSelect(event)]} value={typesSelect} name='types'>
 
-                <select className={styles.selectTypes} onChange={(event) => [handleChangeSelect(event), setTypesSelect(event)]} value={typesSelect}>
                     <option>Select Type</option>
-                    {types.map((type, index) => (
+                    {typesBD.map((type, index) => (
                         <option key={index} >
                             {type.name}
                         </option>
@@ -143,9 +168,14 @@ const Form = () => {
                 </div>)
                 )}
 
+                {errors.e9 ? <p>{errors.e9}</p> : <></>}
+
+
+
                 <button type='submit' className={styles.buttonSubmit} onClick={handleSubmit}>
                     <img src={iconMas} className={styles.buttonSubmitIcon} />
                 </button>
+
                 {/* {errors.e10 ? <p>{errors.e10}</p> : <p>Perfecto</p>} */}
             </form>
         </div>

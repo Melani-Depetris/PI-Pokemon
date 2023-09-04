@@ -18,13 +18,12 @@
   /* 100% del alto de la ventana */
   /* display: flex;
   position: fixed; */
+  
   object-fit: cover;
-  /* Escalar el video para cubrir el contenedor */
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  /* Colocar el video detrás de los botones */
 }
 
 .button {

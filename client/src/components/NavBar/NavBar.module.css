@@ -10,21 +10,22 @@
     position: fixed;
 }
 
+.navBarImagen{
+    height: 40px;
+}
+
 .navBarIconHome {
-    height: 30px;
+    height: 40px;
+    width: 40px;
     background-color: transparent;
     border: none;
-    border-radius: 50%;
     display: inline-block;
     transition: transform 0.2s, box-shadow 0.2s
 }
 .navBarIconHome:hover{
     outline: 1px solid #ffffff;
     transform: translateY(-2px); 
-}
-
-.navBarImagen{
-    height: 30px; 
+    border-radius: 100%;
 }
 
 .navBarIconExit{
@@ -36,5 +37,17 @@
     transition: transform 0.2s, box-shadow 0.2s
 }
 .navBarIconExit:hover{
+    transform: translateY(-2px); 
+}
+
+.navBarIconAbout{
+    height: 30px;
+    background-color: transparent;
+    border: none;
+
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s
+}
+.navBarIconAbout:hover{
     transform: translateY(-2px); 
 }

@@ -6,6 +6,7 @@ import videoLanding from '../../assets/landing.mp4'
 import botonPlay from '../../assets/play.png'
 import botonPause from '../../assets/pause.png'
 
+
 const Landing = () => {
     // const [isPlaying, setIsPlaying] = useState(false);
     // const videoRef = useRef(null);
@@ -41,7 +42,7 @@ const Landing = () => {
                 <button className={styles.button}>💮START</button>
             </Link>
 
-            <video ref={videoRef} loop autoPlay width="400" height="300" className={styles.videoLanding}>
+            <video ref={videoRef} loop autoPlay muted width="400" height="300" className={styles.videoLanding}>
                 <source src={videoLanding} type="video/mp4" />
                 Tu navegador no soporta la reproducción de videos.
             </video>

@@ -1,17 +1,22 @@
+// const URL = import.meta.env.VITE_REACT_APP_URL_BACKEND
+// import axios from 'axios'
+
 import React from 'react'
 import styles from './SearchBar.module.css'
 import lupa from '../../assets/lupa.png'
-const URL = import.meta.env.VITE_REACT_APP_URL_BACKEND
-import axios from 'axios'
 import { useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getByName } from '../../redux/actions'
+
 
 const SearchBar = () => {
     const [name, setName] = useState('');
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const handleChange = (event) => {
         setName(() => event.target.value)
         // event.preventDefault()
@@ -23,6 +28,8 @@ const SearchBar = () => {
     const onSearch = async (name) => {
 
         dispatch(getByName(name))
+        
+        navigate('/home')
 
         // try {
         //     const response = (await axios(`${URL}pokemons/name/?name=${name}`)).data
@@ -35,16 +42,16 @@ const SearchBar = () => {
     }
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') { // Realizar la búsqueda cuando se presiona Enter
-          onSearch(name);
+            onSearch(name);
         }
-      };
+    };
 
     return (
         <div >
             <div className={styles.searchContainer}>
-                <input className={styles.searchInput} name="myInput" type='search' value={name} onChange={handleChange} placeholder='Busca un pokemon'  onKeyPress={handleKeyPress}/>
+                <input className={styles.searchInput} name="myInput" type='search' value={name} onChange={handleChange} placeholder='Busca un pokemon' onKeyPress={handleKeyPress} />
 
-                <button onClick={() => { onSearch(name); setName('') }}  className={styles.searchButton}>
+                <button onClick={() => { onSearch(name); setName('') }} className={styles.searchButton}>
                     <img src={lupa} width='20px' height='20px' className={styles.searchIcon} />
                 </button>
 

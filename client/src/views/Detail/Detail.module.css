@@ -4,8 +4,19 @@
    display: flex;
    justify-content: center;
    align-items: center;
+   position: relative;
+   position: relative;
+   z-index: -1;
+   background: rgb(71, 119, 93);
+   background: radial-gradient(circle, rgba(71, 119, 93, 1) 0%, rgba(37, 37, 37, 1) 67%);
+}
+
+.DetailContainerHouse {
    position: fixed;
-   background-color: rgb(33, 210, 30);
+   height: 550px;
+   width: 550px;
+   z-index: 1;
+   top: 50px
 }
 
 .DetailPokemon {
@@ -13,16 +24,21 @@
    align-items: center;
    justify-content: center;
    flex-direction: column;
-   width: 700px;
+   width: 400px;
    height: 400px;
    background-color: rgba(0, 0, 0, 0.348);
-   top: 50%
+   top: 50%;
+
+   position: absolute;
+   z-index: 2;
 }
 
 .loading {
    width: 72px;
    height: 72px;
-   display: grid;
+   display: flex;
+   position: relative;
+   z-index: 5;
    color: #ff477c;
    background: linear-gradient(currentColor 0 0) center/100% 4.3px,
       linear-gradient(currentColor 0 0) center/4.3px 100%;

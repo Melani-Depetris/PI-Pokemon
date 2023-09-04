@@ -4,38 +4,39 @@ import axios from 'axios'
 import { useParams, Link } from "react-router-dom";
 import styles from './Detail.module.css'
 import flecha from '../../assets/flecha-circulo-izquierda.png'
+import house from '../../assets/housePokemonDetail.png'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getById } from '../../redux/actions'
 
 
 const Detail = () => {
-    
+
     const { id } = useParams()
     const dispatch = useDispatch()
     const detail = useSelector((state) => state.pokemon)
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     console.log(detail);
 
     useEffect(() => {
 
         dispatch(getById(id))
-        // setTimeout(() => {
+        setTimeout(() => {
 
-        //     setIsLoading(false)
-        // }, 1000);
+            setIsLoading(false)
+        }, 1000);
 
-    }, [dispatch, id]);
+    }, [dispatch]);
 
     // console.log(detail);
 
     return (
         <div className={styles.DetailContainer}>
-            {/* <h1>Detail</h1> */}
+            <img src={house} className={styles.DetailContainerHouse} />
 
-            {/* {
-                isLoading ? <div className={styles.loading} /> : }*/}
+            {
+                isLoading ? <div className={styles.loading} /> :
 
                     <div>
                         <Link to='/home'>
@@ -54,7 +55,7 @@ const Detail = () => {
                             <h3>Types: {detail.types?.map(e => e.name)} </h3>
                         </div>
                     </div>
-            
+            }
         </div>
     )
 }
