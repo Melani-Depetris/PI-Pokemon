@@ -111,44 +111,44 @@ const Form = () => {
                 <label className={styles.label}>Name </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.name} name='name' placeholder='Name' />
 
-                {errors.e1 ? <p>{errors.e1}</p> : <></>}
+                {errors.e1 ? <p className={styles.errors} >{errors.e1}</p> : <></>}
 
 
                 <label className={styles.label}>Image: </label>
-                <input className={styles.input} onChange={handleChange} value={pokemonData.image} name='image' placeholder='Image' />
+                <input className={styles.input} onChange={handleChange} value={pokemonData.image} name='image' placeholder='Pega la url de la imagen' />
 
-                {errors.e2 ? <p>{errors.e2}</p> : <></>}
+                {errors.e2 ? <p className={styles.errors} >{errors.e2}</p> : <></>}
 
                 <label className={styles.label}>Life: </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.life} name='life' placeholder='Life' />
 
-                {errors.e3 ? <p>{errors.e3}</p> : <></>}
+                {errors.e3 ? <p className={styles.errors} >{errors.e3}</p> : <></>}
 
                 <label className={styles.label}>Attack: </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.attack} name='attack' placeholder='Attack' />
 
-                {errors.e4 ? <p>{errors.e4}</p> : <></>}
+                {errors.e4 ? <p className={styles.errors} >{errors.e4}</p> : <></>}
 
 
                 <label className={styles.label}>Defense: </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.defense} name='defense' placeholder='Defense' />
 
-                {errors.e5 ? <p>{errors.e5}</p> : <></>}
+                {errors.e5 ? <p className={styles.errors} >{errors.e5}</p> : <></>}
 
                 <label className={styles.label}>Speed: </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.speed} name='speed' placeholder='Speed' />
 
-                {errors.e6 ? <p>{errors.e6}</p> : <></>}
+                {errors.e6 ? <p className={styles.errors} >{errors.e6}</p> : <></>}
 
                 <label className={styles.label}>Height: </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.height} name='height' placeholder='Height' />
 
-                {errors.e7 ? <p>{errors.e7}</p> : <></>}
+                {errors.e7 ? <p className={styles.errors} >{errors.e7}</p> : <></>}
 
                 <label className={styles.label}>Weight: </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.weight} name='weight' placeholder='Weight' />
 
-                {errors.e8 ? <p>{errors.e8}</p> : <></>}
+                {errors.e8 ? <p className={styles.errors} >{errors.e8}</p> : <></>}
 
                 <label for="types">Selecciona que tipo de pokemon es:</label>
                 <select className={styles.selectTypes} onChange={(event) => [handleChangeSelect(event), setTypesSelect(event)]} value={typesSelect} name='types'>
@@ -168,7 +168,7 @@ const Form = () => {
                 </div>)
                 )}
 
-                {errors.e9 ? <p>{errors.e9}</p> : <></>}
+                {errors.e9 ? <p className={styles.errors} >{errors.e9}</p> : <></>}
 
 
 

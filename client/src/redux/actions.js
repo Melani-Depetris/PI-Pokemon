@@ -9,6 +9,9 @@ export const GET_TYPES = 'GET_TYPES';
 
 export const POST_POKEMON = 'POST_POKEMON';
 
+export const FILTER_TYPE = 'FILTER_TYPE';
+export const FILTER_SOURCE = 'FILTER_SOURCE';
+
 export const getAllPokemons = () => {
     return async (dispatch) => {
 
@@ -81,5 +84,19 @@ export const postPokemon = (pokemonData) => {
         } catch (error) {
             console.log(error.message);
         }
+    }
+}
+
+export const filterType = (value) => {
+    return {
+        type: FILTER_TYPE,
+        payload: value
+    }
+}
+
+export const filterSource = (value) => {
+    return {
+        type: FILTER_SOURCE,
+        payload: value
     }
 }

@@ -1,4 +1,5 @@
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
+import Filters from "../../components/Filters/Filters";
 const URL = import.meta.env.VITE_REACT_APP_URL_BACKEND
 
 import { useEffect, useState } from 'react';
@@ -7,7 +8,7 @@ import styles from './Home.module.css'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import {getAllPokemons} from '../../redux/actions'
+import { getAllPokemons } from '../../redux/actions'
 
 const POKEMONS_PER_PAGE = 12; // Cantidad de pokémones por página
 
@@ -49,14 +50,21 @@ const Home = () => {
 
     return (
         <div className={styles.homeContainer}>
-            <div className={styles.buttonsContainer}>
-                {Array.from({ length: totalPages }, (_, index) => (
-                    <button className={styles.buttonPage} key={index} onClick={() => goToPage(index + 1)}>
-                        {index + 1}
-                    </button>
-                ))}
+            <div>
+                <Filters />
             </div>
-            <CardsContainer pokemons={visiblePokemons} />
+
+            <div>
+                <div className={styles.buttonsContainer}>
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button className={styles.buttonPage} key={index} onClick={() => goToPage(index + 1)}>
+                            {index + 1}
+                        </button>
+                    ))}
+                </div>
+                <CardsContainer pokemons={visiblePokemons} />
+            </div>
+
         </div>
     );
 }

@@ -48,3 +48,7 @@ font-size: medium;
     outline: 2px solid #e02796;
     border-radius: 100%;
 }
+
+.errors{
+    color: #fc049c;
+}

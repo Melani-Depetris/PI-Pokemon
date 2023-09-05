@@ -43,6 +43,7 @@ const SearchBar = () => {
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') { // Realizar la búsqueda cuando se presiona Enter
             onSearch(name);
+            setName('')
         }
     };
 
