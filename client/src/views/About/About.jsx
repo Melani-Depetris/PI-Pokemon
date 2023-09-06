@@ -1,4 +1,4 @@
-import imgAbout from '../../assets/about1.jpg'
+import imgAbout from '../../assets/hilda.gif'
 //import deploy del integrador para el boton de ir
 import styles from './About.module.css'
 
@@ -7,8 +7,7 @@ const About = () => {
     return (
         <div className={styles.aboutContainer}>
             <div className={styles.aboutText}>
-                <h1>Hi! Bienvenido a "Mi Pokédex"                <hr />
-                </h1>
+                <h1>Hi! Bienvenido a "Mi Pokédex" <hr /> </h1>
                 <br />
                 <h3> Espero estes disfrutando tu paso por mi pagina web.</h3>
 
@@ -31,12 +30,17 @@ const About = () => {
                 <div>
                     <h3>Contacto</h3>
                     <br />
-                    <button>Git-Hub</button>
-                    <button>Linkedin</button>
+                    <a href='https://www.linkedin.com/in/melani-depetris/' target="_blank" rel="noopener noreferrer">
+                        <button>Linkedin</button>
+                    </a>
+
+                    <a href='https://github.com/Melani-Depetris/' target="_blank" rel="noopener noreferrer">
+                        <button>Git-Hub</button>
+                    </a>
                 </div>
 
             </div>
-            <div>
+            <div className={styles.conteinerImgHilda}>
                 <img src={imgAbout} className={styles.aboutImage} />
             </div>
         </div>

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTypes, filterType, filterSource} from '../../redux/actions'
+import { getTypes, filterType, filterSource, orderAlf, orderAttack } from '../../redux/actions'
 import styles from './Filters.module.css'
 
 const Filters = () => {
 
     const typesBD = useSelector((state) => state.types)
-
+console.log(typesBD);
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -24,38 +24,64 @@ const Filters = () => {
         dispatch(filterSource(event.target.value))
     }
 
-    return (
-        <div>Filters
-            <div className={styles.buttonsFilter}>
+    const handlerOrderAlf = (event) => {
+        dispatch(orderAlf(event.target.value))
+    }
 
+    const handlerOrderAttack = (event) => {
+        dispatch(orderAttack(event.target.value))
+    }
+
+    return (
+        <div className={styles.filtersConteiner}>
+
+            <div className={styles.buttonsFilter}>
+                
+                <label >Filter by Type</label>
                 <select name="selectType" onChange={handleFilterType}>
 
-                    <option>Select Type</option>
+                    <option> - </option>
                     {typesBD.map((type, index) => (
                         <option key={index} value={type.name} >
                             {type.name}
                         </option>
                     ))}
-
                 </select>
 
+                <label >Filter by source</label>
                 <select name="selectSource" onChange={handleFilterSource}>
-                   
-                   <option>Select Source</option>
 
-                   <option value="API">API</option>
-                   <option value="DB">DB</option>
-                   
-                   {/* {pokemonsSource.map((source, index) => (
-                    <option key={index} value={source}>
-                        {source}
-                    </option>
+                    <option> - </option>
 
-                   ))} */}
+                    <option value="API">API</option>
+                    <option value="DB">DB</option>
 
                 </select>
 
             </div>
+
+            <div>
+
+                <label >Order by name</label>
+                <select name="selectOrderAlf" onChange={handlerOrderAlf}>
+
+                    <option> - </option>
+                    <option value='A-Z'> A-Z</option>
+                    <option value='Z-A'> Z-A</option>
+
+                </select>
+
+                <label >Order by attack</label>
+                <select name="selectOrderAttack" onChange={handlerOrderAttack}>
+
+                    <option> - </option>
+                    <option value='1'>Strong</option>
+                    <option value='100'>Weak</option>
+
+                </select>
+
+            </div>
+
         </div>
     )
 }

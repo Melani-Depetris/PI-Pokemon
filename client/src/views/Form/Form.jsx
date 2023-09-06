@@ -74,13 +74,13 @@ const Form = () => {
 
     const handleChangeSelect = (event) => {
 
-        if (event.target.value !== 'Select Type' && !pokemonData.types.includes(event.target.value) && pokemonData.types.length < 4) {
+        if (event.target.value !== 'Select Type' && !pokemonData.types.includes(event.target.value) && pokemonData.types.length < 2) {
             setPokemonData({
                 ...pokemonData,
                 types: [...pokemonData.types, event.target.value]
             })
         } else {
-            alert('Solo puede pertenecer a 4 types de Pokemons')
+            alert('Solo puede pertenecer a 2 types de Pokemons')
         }
 
         setErrors(validation({

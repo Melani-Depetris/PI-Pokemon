@@ -11,6 +11,8 @@ export const POST_POKEMON = 'POST_POKEMON';
 
 export const FILTER_TYPE = 'FILTER_TYPE';
 export const FILTER_SOURCE = 'FILTER_SOURCE';
+export const ORDER_ALF = 'ORDER_ALF';
+export const ORDER_ATTACK = 'ORDER_ATTACK';
 
 export const getAllPokemons = () => {
     return async (dispatch) => {
@@ -97,6 +99,20 @@ export const filterType = (value) => {
 export const filterSource = (value) => {
     return {
         type: FILTER_SOURCE,
+        payload: value
+    }
+}
+
+export const orderAlf = (value) => {
+    return {
+        type: ORDER_ALF,
+        payload: value
+    }
+}
+
+export const orderAttack = (value) => {
+    return {
+        type: ORDER_ATTACK,
         payload: value
     }
 }

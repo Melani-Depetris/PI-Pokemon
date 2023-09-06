@@ -10,11 +10,11 @@
     position: fixed;
 }
 
-.navBarImagen{
+.navBarImagen {
     height: 40px;
 }
 
-.navBarIconHome {
+.navBarIconForm {
     height: 40px;
     width: 40px;
     background-color: transparent;
@@ -22,35 +22,45 @@
     display: inline-block;
     transition: transform 0.2s, box-shadow 0.2s
 }
-.navBarIconHome:hover{
+
+.navBarIconForm:hover {
     outline: 1px solid #ffffff;
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
     border-radius: 100%;
 }
 
-.navBarIconExit{
-    height: 30px;
-    background-color: transparent;
-    border: none;
-
-    display: inline-block;
-    transition: transform 0.2s, box-shadow 0.2s
-}
-.navBarIconExit:hover{
-    transform: translateY(-2px); 
-}
-
-.navBarIconAbout{
-    height: 30px;
+.navBarIconHome {
+    height: 50px;
     background-color: transparent;
     border: none;
     display: inline-block;
     transition: transform 0.2s, box-shadow 0.2s
 }
-.navBarIconAbout:hover{
-    transform: translateY(-2px); 
-    /* filter: drop-shadow(0px 0px -8px rgba(255, 0, 0, 0.5));
 
-    outline: 1px solid #ffffff; */
+.navBarIconHome:hover {
+    transform: translateY(-2px);
+}
 
+.navBarIconAbout {
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s
+}
+
+.navBarIconAbout:hover {
+    transform: translateY(-2px);
+}
+
+.navBarIconExit {
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s
+}
+
+.navBarIconExit:hover {
+    transform: translateY(-2px);
 }

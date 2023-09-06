@@ -24,9 +24,14 @@
     border-radius: 5px;
 }
 
+.conteinerImgHilda{
+    background-color: transparent;
+}
+
 .aboutImage {
-    width: 200px;
-    height: 350px;
+    background-color: transparent;
+    width: 220px;
+    height: 370px;
     border-radius: 50%;
     border: 1px solid #fff;
 }
