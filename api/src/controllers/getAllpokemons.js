@@ -49,7 +49,8 @@ const getAllpokemons = async (req, res) => {
                     speed: e.data.stats[5].base_stat,
                     height: e.data.height,
                     weight: e.data.weight,
-                    types: e.data.types.map(e => { return { name: e.type.name } })
+                    types: e.data.types.map(e => { return { name: e.type.name } }),
+                    source: 'API'
                 }
             })]
         }
@@ -67,6 +68,12 @@ const getAllpokemons = async (req, res) => {
                     attributes: ["name"],
                     through: { attributes: [] } //Evita traer los datos de la tabla intermedia si existe
                 }]
+        })
+
+        allPokemonsDb.map(pokemon => {
+            // Agrega el origen "DB" a los Pokémon de la base de datos
+            pokemon.dataValues.source = 'DB';
+            return pokemon.dataValues;
         })
 
         // Asocio la info de estos arrays
