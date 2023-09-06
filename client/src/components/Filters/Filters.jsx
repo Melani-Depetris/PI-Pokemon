@@ -6,7 +6,7 @@ import styles from './Filters.module.css'
 const Filters = () => {
 
     const typesBD = useSelector((state) => state.types)
-console.log(typesBD);
+    console.log(typesBD);
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -36,7 +36,7 @@ console.log(typesBD);
         <div className={styles.filtersConteiner}>
 
             <div className={styles.buttonsFilter}>
-                
+
                 <label >Filter by Type</label>
                 <select name="selectType" onChange={handleFilterType}>
 
@@ -47,6 +47,10 @@ console.log(typesBD);
                         </option>
                     ))}
                 </select>
+            </div>
+
+
+            <div className={styles.buttonsFilter}>
 
                 <label >Filter by source</label>
                 <select name="selectSource" onChange={handleFilterSource}>
@@ -60,7 +64,7 @@ console.log(typesBD);
 
             </div>
 
-            <div>
+            <div className={styles.buttonsFilter}>
 
                 <label >Order by name</label>
                 <select name="selectOrderAlf" onChange={handlerOrderAlf}>
@@ -70,6 +74,10 @@ console.log(typesBD);
                     <option value='Z-A'> Z-A</option>
 
                 </select>
+            </div>
+
+
+            <div className={styles.buttonsFilter}>
 
                 <label >Order by attack</label>
                 <select name="selectOrderAttack" onChange={handlerOrderAttack}>

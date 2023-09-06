@@ -39,13 +39,15 @@ const Detail = () => {
                 isLoading ? <div className={styles.loading} /> :
 
                     <div>
-                        <Link to='/home'>
+                        {/* <Link to='/home'>
                             <img src={flecha} width='40px' />
-                        </Link>
+                        </Link> */}
+                        
+                        <img src={detail.image} alt={detail.name} className={styles.pokemonImg}/>
+
                         <div className={styles.DetailPokemon}>
                             <h3>Id: {detail.id}</h3>
                             <h3>Name: {detail.name}</h3>
-                            <img src={detail.image} alt={detail.name} />
                             <h3>Life: {detail.life}</h3>
                             <h3>Attack: {detail.attack}</h3>
                             <h3>Defense: {detail.defense}</h3>

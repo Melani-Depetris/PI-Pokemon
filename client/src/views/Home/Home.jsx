@@ -50,19 +50,22 @@ const Home = () => {
 
     return (
         <div className={styles.homeContainer}>
-            <div>
-                <Filters />
+
+            <div className={styles.buttonsContainer}>
+                {Array.from({ length: totalPages }, (_, index) => (
+                    <button className={styles.buttonPage} key={index} onClick={() => goToPage(index + 1)}>
+                        {index + 1}
+                    </button>
+                ))}
             </div>
 
-            <div>
-                <div className={styles.buttonsContainer}>
-                    {Array.from({ length: totalPages }, (_, index) => (
-                        <button className={styles.buttonPage} key={index} onClick={() => goToPage(index + 1)}>
-                            {index + 1}
-                        </button>
-                    ))}
+            <div className={styles.containerFiltersCards}>
+                <div className={styles.containerFilters}>
+                    <Filters />
                 </div>
-                <CardsContainer pokemons={visiblePokemons} />
+                <div className={styles.containerCards}>
+                    <CardsContainer pokemons={visiblePokemons} />
+                </div>
             </div>
 
         </div>

@@ -3,20 +3,27 @@
    width: 100vw;
    display: flex;
    justify-content: center;
-   align-items: center;
-   position: relative;
-   position: relative;
+   position: fixed;
+   padding-top: 51px;
    z-index: -1;
-   background: rgb(71, 119, 93);
-   background: radial-gradient(circle, rgba(71, 119, 93, 1) 0%, rgba(37, 37, 37, 1) 67%);
+   background: rgb(32,73,31);
+background: radial-gradient(circle, rgba(32,73,31,1) 0%, rgba(37,37,37,1) 67%);
 }
 
 .DetailContainerHouse {
-   position: fixed;
    height: 550px;
    width: 550px;
    z-index: 1;
-   top: 50px
+   padding-top: 18px;
+}
+
+.pokemonImg {
+   height: 200px;
+   position: absolute;
+   z-index: 2;
+   top: 300px;
+   left: 430px;
+   filter: drop-shadow(0px 0px 26px #e20df1);
 }
 
 .DetailPokemon {
@@ -24,13 +31,13 @@
    align-items: center;
    justify-content: center;
    flex-direction: column;
-   width: 400px;
-   height: 400px;
+   width: 300px;
+   height: 590px;
+ 
    background-color: rgba(0, 0, 0, 0.348);
-   top: 50%;
-
-   position: absolute;
-   z-index: 2;
+   z-index: 3;
+   color: #e20df144;
+   text-shadow: 1px 0px 0px #fc049d ;
 }
 
 .loading {

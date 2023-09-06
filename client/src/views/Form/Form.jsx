@@ -7,7 +7,6 @@ import { getTypes, postPokemon } from '../../redux/actions'
 import styles from './Form.module.css'
 import iconMas from '../../assets/mas.png'
 
-
 const Form = () => {
 
     const typesBD = useSelector((state) => state.types)
@@ -102,6 +101,7 @@ const Form = () => {
 
     return (
         <div className={styles.form}>
+                     
             <form className={styles.formContainer}>
 
                 <h1>New Pokemón!!</h1>

@@ -1,15 +1,14 @@
 .aboutContainer {
-    display: flex;
     width: 100vw;
     height: 100vh;
-    position:fixed;
+    position: fixed;
     z-index: -1;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     align-items: center;
-    background: no-repeat url('../../assets/house3.jpg');
-    gap: 50px;
-
+    background: no-repeat url('https://cdn.discordapp.com/attachments/1115006209641173083/1147736255732387881/Casita_Amita_Flores_en_el_bosque.jpg');
+    gap: 80px;
 }
 
 .aboutText {
@@ -20,11 +19,12 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(185, 183, 188, 0.739);
-    padding: 20px;
+    padding: 55px;
     border-radius: 5px;
+    text-align: justify;
 }
 
-.conteinerImgHilda{
+.conteinerImgHilda {
     background-color: transparent;
 }
 
