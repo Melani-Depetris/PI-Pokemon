@@ -19,9 +19,9 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(185, 183, 188, 0.739);
-    padding: 55px;
+    padding: 75px;
     border-radius: 5px;
-    text-align: justify;
+    text-align: center;
 }
 
 .conteinerImgHilda {
@@ -34,4 +34,22 @@
     height: 370px;
     border-radius: 50%;
     border: 1px solid #fff;
+}
+
+.buttonsAbout {
+    text-decoration: none;
+    width: auto;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    margin: 3px 10px 3px 10px;
+    background: rgb(251, 0, 151);
+    background: radial-gradient(circle, rgba(236, 83, 176, 1) 0%, rgba(77, 45, 183, 0.364) 100%);
+    border-radius: 20px;
+}
+.buttonsAbout:hover{
+    outline: 1px solid #fff;
+    background: rgba(236, 83, 175, 0.975);
+    background: radial-gradient(circle, rgba(236, 83, 176, 1) 0%, rgba(77, 45, 183, 0.867) 100%);
+    border-radius: 20px;
 }

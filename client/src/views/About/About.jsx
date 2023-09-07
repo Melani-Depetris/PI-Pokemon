@@ -23,7 +23,7 @@ const About = () => {
                 <h3>Mi último proyecto</h3>
                 <br />
 
-                <button>Ir</button>
+                <button className={styles.buttonsAbout} >Ir</button>
 
                 <br />
 
@@ -31,11 +31,11 @@ const About = () => {
                     <h3>Contacto</h3>
                     <br />
                     <a href='https://www.linkedin.com/in/melani-depetris/' target="_blank" rel="noopener noreferrer">
-                        <button>Linkedin</button>
+                        <button className={styles.buttonsAbout} >Linkedin</button>
                     </a>
 
                     <a href='https://github.com/Melani-Depetris/' target="_blank" rel="noopener noreferrer">
-                        <button>Git-Hub</button>
+                        <button className={styles.buttonsAbout} >Git-Hub</button>
                     </a>
                 </div>
 

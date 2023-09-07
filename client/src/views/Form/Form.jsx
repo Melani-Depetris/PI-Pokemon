@@ -105,8 +105,8 @@ const Form = () => {
             <form className={styles.formContainer}>
 
                 <h1>New Pokemón!!</h1>
-                <h3>¿Estás a punto de capturar un nuevo Pokémon?</h3>
-                <p>Te pediré algunos datos para poder agregarlo a tu Pokédex.</p>
+                <h3>Are you about to catch a new Pokémon?</h3>
+                <p>I need some data to be able to add it to your Pokédex.</p>
 
                 <label className={styles.label}>Name </label>
                 <input className={styles.input} onChange={handleChange} value={pokemonData.name} name='name' placeholder='Name' />
@@ -115,7 +115,7 @@ const Form = () => {
 
 
                 <label className={styles.label}>Image: </label>
-                <input className={styles.input} onChange={handleChange} value={pokemonData.image} name='image' placeholder='Pega la url de la imagen' />
+                <input className={styles.input} onChange={handleChange} value={pokemonData.image} name='image' placeholder='Paste the image url' />
 
                 {errors.e2 ? <p className={styles.errors} >{errors.e2}</p> : <></>}
 

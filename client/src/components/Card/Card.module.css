@@ -1,3 +1,6 @@
+.card {
+    text-decoration: none;
+}
 .cardContainer{
 
     display: grid;
@@ -5,11 +8,16 @@
     width: 200px;
     height: 200px;
     background-color: rgba(235, 33, 211, 0.687);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #16151597;
     margin: 40px;
     padding: 20px;
-    border-radius: 10px;
+    overflow: hidden;
 }
 
-.card{
-    text-decoration: none;
+.cardContainer::before{
+content: '';
+position: absolute;
+height: 300px;
+width: 300px;
 }
