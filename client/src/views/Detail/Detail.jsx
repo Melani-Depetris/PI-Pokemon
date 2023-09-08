@@ -54,7 +54,7 @@ const Detail = () => {
                             <h3>Speed: {detail.speed}</h3>
                             <h3>Height: {detail.height}</h3>
                             <h3>Weight: {detail.weight}</h3>
-                            <h3>Types: {detail.types?.map(e => e.name)} </h3>
+                            <h3>Types: {detail.types?.map(e => <p>{e.name}</p>)} </h3>
                         </div>
                     </div>
             }

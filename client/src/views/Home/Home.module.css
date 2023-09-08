@@ -2,16 +2,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #42e03a;
+    background-image: url('https://cdn.discordapp.com/attachments/1115006209641173083/1149222587856072795/Bosque_Amita.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
 }
 
 .buttonsContainer {
+    
     display: flex;
     justify-content: center;
-    background-color: rgb(191, 0, 255);
     padding: 10px;
     gap: 10px;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 
 .buttonPage {
@@ -38,9 +42,8 @@
     position: fixed;
     width: 20%;
     height: 400px;
-    margin-top: 40px;
     border-radius: 0 10px 10px 0;
-    background-color: #483ae096;
+    background-color: #9d44c063;
     padding-bottom: 80px;
 }
 

@@ -1,23 +1,21 @@
 .cardContainer {
-   height: 100vh;
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
    align-items: center;
-   background-image: url('../../assets/BosqueFondo.png');
-   background-size: cover;
-   background-repeat: no-repeat;
+   margin-top: 20px;
+   margin-bottom: 40px;
 }
 
 .loading {
    width: 72px;
    height: 72px;
    display: flex;
-   position: relative;
    margin-left: 400px;
-   margin-bottom: 250px;
-   z-index: 5;
-   color: #ff477ba8;
+   margin-bottom: 600px;
+   margin-top: 190px;
+   margin-left: 470px;
+   color: #ffb2c8a8;
    background: linear-gradient(currentColor 0 0) center/100% 4.3px,
       linear-gradient(currentColor 0 0) center/4.3px 100%;
    background-repeat: no-repeat;
@@ -27,15 +25,12 @@
 .loading::before,
 .loading::after {
    content: "";
-   grid-area: 1/1;
    background: repeating-conic-gradient(#0000 0 35deg, currentColor 0 90deg);
    mask: radial-gradient(farthest-side, #0000 calc(100% - 4.3px), #000 0);
    border-radius: 50%;
 }
 
-.loading::after {
-   margin: 20%;
-}
+
 
 @keyframes loading-slq5ph {
    100% {

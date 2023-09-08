@@ -57,8 +57,8 @@ const Filters = () => {
 
                     <option> - </option>
 
-                    <option value="API">API</option>
-                    <option value="DB">DB</option>
+                    <option value="API">Avistados</option>
+                    <option value="DB">Capturados</option>
 
                 </select>
 

@@ -8,6 +8,7 @@
     height: 50px;
     background-color: #9d44c063;
     position: fixed;
+    z-index: 5;
 }
 
 .navBarImagen {

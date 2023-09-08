@@ -6,8 +6,8 @@
    position: fixed;
    padding-top: 51px;
    z-index: -1;
-   background: rgb(32,73,31);
-background: radial-gradient(circle, rgba(32,73,31,1) 0%, rgba(37,37,37,1) 67%);
+   background: rgb(32, 73, 31);
+   background: radial-gradient(circle, rgba(32, 73, 31, 1) 0%, rgba(37, 37, 37, 1) 67%);
 }
 
 .DetailContainerHouse {
@@ -18,11 +18,12 @@ background: radial-gradient(circle, rgba(32,73,31,1) 0%, rgba(37,37,37,1) 67%);
 }
 
 .pokemonImg {
-   height: 200px;
+   height: 90px;
+   width: 90px;
    position: absolute;
    z-index: 2;
-   top: 300px;
-   left: 430px;
+   top: 350px;
+   left: 490px;
    filter: drop-shadow(0px 0px 26px #e20df1);
 }
 
@@ -33,20 +34,22 @@ background: radial-gradient(circle, rgba(32,73,31,1) 0%, rgba(37,37,37,1) 67%);
    flex-direction: column;
    width: 300px;
    height: 590px;
- 
+
    background-color: rgba(0, 0, 0, 0.348);
    z-index: 3;
    color: #e20df144;
-   text-shadow: 1px 0px 0px #fc049d ;
+   text-shadow: 1px 0px 0px #fc049d;
+   text-align: center;
 }
 
 .loading {
    width: 72px;
    height: 72px;
    display: flex;
-   position: relative;
+   position: absolute;
    z-index: 5;
-   color: #ff477c;
+   top: 300px;
+   color: #ffb2c8a8;
    background: linear-gradient(currentColor 0 0) center/100% 4.3px,
       linear-gradient(currentColor 0 0) center/4.3px 100%;
    background-repeat: no-repeat;
