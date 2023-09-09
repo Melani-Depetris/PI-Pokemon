@@ -9,10 +9,13 @@ export const GET_TYPES = 'GET_TYPES';
 
 export const POST_POKEMON = 'POST_POKEMON';
 
+export const DELETE_POKEMON = 'DELETE_POKEMON';
+
 export const FILTER_TYPE = 'FILTER_TYPE';
 export const FILTER_SOURCE = 'FILTER_SOURCE';
 export const ORDER_ALF = 'ORDER_ALF';
 export const ORDER_ATTACK = 'ORDER_ATTACK';
+
 
 export const getAllPokemons = () => {
     return async (dispatch) => {
@@ -88,6 +91,23 @@ export const postPokemon = (pokemonData) => {
 
         } catch (error) {
             console.log(error);
+            window.alert(error.response.data)
+        }
+    }
+}
+
+export const deletePokmeon = (id) => {
+
+    return async (dispatch) => {
+        
+        try {
+            const { data } = await axios.delete(`${URL}pokemons/${id}`)
+
+            return dispatch({
+                type: DELETE_POKEMON,
+                payload: data
+            })
+        } catch (error) {
             window.alert(error.response.data)
         }
     }

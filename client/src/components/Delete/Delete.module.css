@@ -1,0 +1,52 @@
+.deleteContainer{
+    background-color: rgba(0, 0, 0, 0.686);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 7;
+}
+
+.delete{
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    position: absolute;
+    z-index: 9;
+    /* background-color: rgb(255, 133, 184); */
+    background-color: #442454;
+    top: 160px;
+    left: 550px;
+    border-radius: 100%;
+    gap: 30px;
+}
+
+.buttonsContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttons{
+    width: 40px;
+    height: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 15px;
+    padding: 20px;
+    font-weight: 600;
+}
+.buttons:hover{
+outline: 2px solid #d00404;
+background-color: rgb(236, 43, 94);
+}
+
