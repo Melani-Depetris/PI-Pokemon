@@ -20,6 +20,9 @@ const getPokemonsByIdController = async (id) => {
                 }]
         })
 
+            // Agrega el origen "DB" a los Pokémon de la base de datos
+            pokemon.dataValues.source = 'DB';
+
         console.log(pokemon);
         return pokemon
     }
@@ -42,7 +45,8 @@ const getPokemonsByIdController = async (id) => {
             speed: stats[5].base_stat,
             height: height,
             weight: weight,
-            types: types.map(e => { return { name: e.type.name } })
+            types: types.map(e => { return { name: e.type.name } }),
+            source: 'API'
         }
         return pokemon
     }
