@@ -79,12 +79,16 @@ export const postPokemon = (pokemonData) => {
         try {
             const { data } = await axios.post(`${URL}pokemons`, pokemonData)
             console.log(data);
+            alert('Pokémon capturado! 🥰')
+
             return dispatch({
                 type: POST_POKEMON,
                 payload: data
             })
+
         } catch (error) {
-            console.log(error.message);
+            console.log(error);
+            window.alert(error.response.data)
         }
     }
 }

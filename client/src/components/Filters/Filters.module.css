@@ -3,13 +3,18 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 80px;
     gap: 30px;
 }
 
 .buttonsFilter{
     display: flex;
     flex-direction: column;
-    gap: 10px
+    gap: 5px;
+    width: 150px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
 }
 

@@ -48,11 +48,11 @@ const Form = () => {
 
         event.preventDefault(); //le quita el evento de refresh
 
-        if (errors.e1 || errors.e2 || errors.e3 || errors.e4 || errors.e5 || errors.e6 || errors.e7 || errors.e8 || errors.e9) {
+        if (errors.e1 || errors.e2 || errors.e3 || errors.e4 || errors.e5 || errors.e6 || errors.e7 || errors.e8 || errors.e) {
             alert('Este Pokémon no pudo ser capturado! 🥹')
         } else {
             dispatch(postPokemon(pokemonData))
-            alert('Pokémon capturado! 🥰')
+            // alert('Pokémon capturado! 🥰')
             setPokemonData({
                 name: '',
                 image: '',
@@ -65,7 +65,7 @@ const Form = () => {
                 types: []
             })
         }// Acá hago el dispatch de la funcion que hace el post en la db 
-    
+
     };
 
 
@@ -101,7 +101,7 @@ const Form = () => {
 
     return (
         <div className={styles.form}>
-                     
+
             <form className={styles.formContainer}>
 
                 <h1>New Pokemón!!</h1>

@@ -1,9 +1,21 @@
 .card2 {
+    color: rgba(255, 255, 255, 0.571);
     text-decoration: none;
 }
 
-.cardContainerAnimation{
-   
+.types {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 30px;
+    width: 200px;
+    gap: 10px;
+    margin: 5px;
+}
+
+.cardContainerAnimation {
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,25 +34,31 @@
 }
 
 .card {
-    background: rgb(31,73,31);
+    /* background: rgb(31,73,31);
     background: radial-gradient(circle, rgba(31,73,31,1) 0%, rgba(37,37,37,1) 89%);
+    */
+    /* background: rgb(236,83,176);
+    background: radial-gradient(circle, rgba(236,83,176,1) 0%, rgba(77,45,183,0.9752275910364145) 100%); */
+
+    background: rgb(236, 83, 176);
+    background: radial-gradient(circle, rgba(236, 83, 176, 1) 0%, rgba(157, 68, 192, 1) 48%);
+
+
     height: 300px;
     width: 300px;
     padding: 3px;
     position: relative;
-    border-radius: 8px ;
+    border-radius: 100%;
     justify-content: center;
     align-items: center;
     text-align: center;
     display: flex;
     font-size: 1.5em;
-    color: rgb(88 199 250 / 0%);
     cursor: pointer;
     font-family: cursive;
     transition: color 1s;
     box-sizing: border-box;
 }
-
 
 .card:hover:before,
 .card:hover:after {
@@ -50,17 +68,16 @@
 
 .card::before,
 .card::after {
-  content: "";
-  width: 101.5%;
-  height: 101.5%;
-  border-radius: 8px;
-  background-image: linear-gradient(
-    var(--rotate),
-    #ffffff, #969696 43%, #242424dd
-  );
-  position: absolute;
-  z-index: -1;
-  opacity: 0; /* Inicialmente ocultamos los pseudo-elementos */
+    content: "";
+    width: 101.5%;
+    height: 101.5%;
+    border-radius: 100%;
+    background-image: linear-gradient(var(--rotate),
+            #0E21A0, #EC53B0 43%, #4D2DB7);
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    filter: drop-shadow(0px 0px 5px #ffffffbf);
 }
 
 @keyframes spin {
@@ -71,4 +88,12 @@
     100% {
         --rotate: 360deg;
     }
+}
+
+.imagenPokemon:hover {
+    object-fit: cover;
+    filter: drop-shadow(0px 0px 26px #ebd0ed);
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1); 
+
 }

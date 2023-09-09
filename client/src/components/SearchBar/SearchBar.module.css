@@ -1,4 +1,4 @@
-.searchContainer{
+.searchContainer {
     display: flex;
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
@@ -6,19 +6,21 @@
 
     transition: transform 0.2s, box-shadow 0.2s
 }
-.searchContainer:hover{
+
+.searchContainer:hover {
     outline: 1px solid #ffffff;
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
 
 }
 
-.searchInput{
+.searchInput {
     background-color: none;
     padding-left: 10px;
-    border:none  ;
-   border-right: .5px solid #cacaca;
+    border: none;
+    border-right: .5px solid #cacaca;
 }
-.searchButton{
+
+.searchButton {
     display: flex;
     justify-content: center;
     border: none;
@@ -26,9 +28,9 @@
     padding: 2px;
     padding-left: 4px;
 }
-.searchIcon{
+
+.searchIcon {
     padding: 2px;
     border: none;
     background-color: #ffffff;
 }
-
