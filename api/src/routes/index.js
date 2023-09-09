@@ -9,6 +9,8 @@ const typesRouter = require('./typesRouter')
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+//El enrutador principal usa 2 enrutadores individuales
+
 router.use('/pokemons', pokemonsRouter)
 
 router.use('/types', typesRouter)
