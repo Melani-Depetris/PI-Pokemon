@@ -14,7 +14,7 @@ const Delete = ({ isOpen, onClose, id, }) => {
     return isOpen ? (
         <div className={styles.deleteContainer}>
             <div className={styles.delete}>
-                <h3>Delete this Pokémon?</h3>
+                <h3>Release this pokemon?</h3>
                 <div className={styles.buttonsContainer}>
                     <button onClick={handleDelete} className={styles.buttons}>Yes</button>
                     <button onClick={onClose} className={styles.buttons}>No</button>
