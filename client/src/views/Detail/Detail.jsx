@@ -9,6 +9,7 @@ import house from '../../assets/housePokemonDetail.png'
 import pokebola from '../../assets/pokebola-delete.png'
 
 import Delete from '../../components/Delete/Delete'
+import Update from '../../components/Update/Update'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getById } from '../../redux/actions'
@@ -35,15 +36,25 @@ const Detail = () => {
 
     // console.log(detail);
 
+    //Estado local que uso para abrir y cerrar el componente delete
     const [deleteIsOpen, setDeleteIsOpen] = useState(false)
-
     const openDelete = () => {
         setDeleteIsOpen(true)
     }
     const closeDelete = () => {
-        setDeleteIsOpen(false);
-    };
+        setDeleteIsOpen(false)
+    }
     console.log(deleteIsOpen);
+
+    const [updateIsOpen, setUpdateIsOpen] = useState(false)
+    const openUpdate = () => {
+        setUpdateIsOpen(true)
+    }
+    const closeUpdate = () => {
+        setUpdateIsOpen(false)
+    }
+    console.log(updateIsOpen);
+
     return (
         <div className={styles.DetailContainer}>
             <img src={house} className={styles.DetailContainerHouse} />
@@ -65,12 +76,24 @@ const Detail = () => {
                             {
                                 detail.source === 'DB'
                                     ?
-                                    <div className={styles.delete}>
-                                        <button onClick={openDelete} className={styles.buttonDelete}>
-                                            <img src={pokebola} className={styles.imageDelete} />
-                                        </button>
-                                        <Delete isOpen={deleteIsOpen} onClose={closeDelete} id={id} />
+
+                                    <div>
+                                        <div className={styles.delete} >
+                                            <button onClick={openDelete} className={styles.buttonDelete}>
+                                                <img src={pokebola} className={styles.imageDelete} />
+                                            </button>
+                                            <Delete isOpen={deleteIsOpen} onClose={closeDelete} id={id} />
+                                        </div>
+
+                                        <div>
+                                            <button onClick={openUpdate} className={styles.buttonUpdate}>
+                                                Edit
+                                            </button>
+                                            <Update isOpen={updateIsOpen} onClose={closeUpdate} pokemon={detail} />
+                                        </div>
+
                                     </div>
+
                                     : null
                             }
 

@@ -3,7 +3,7 @@ import styles from '../Delete/Delete.module.css'
 import { useDispatch } from 'react-redux'
 import { deletePokmeon } from '../../redux/actions'
 
-const Delete = ({ isOpen, onClose, id, }) => {
+const Delete = ({ isOpen, onClose, id }) => {
 
     const dispatch = useDispatch()
 

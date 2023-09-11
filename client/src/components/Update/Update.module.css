@@ -1,0 +1,7 @@
+.updateContainer{
+    width: 300px;
+    height: 700px;
+    background-color: rgb(174, 29, 29);
+    position: absolute;
+    z-index: 8;
+}

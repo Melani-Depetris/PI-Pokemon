@@ -1,4 +1,4 @@
-import { GET_ALL_POKEMONS, GET_BY_ID, GET_BY_NAME, GET_TYPES, FILTER_TYPE, FILTER_SOURCE, ORDER_ALF, ORDER_ATTACK, DELETE_POKEMON} from './actions'
+import { GET_ALL_POKEMONS, GET_BY_ID, GET_BY_NAME, GET_TYPES, FILTER_TYPE, FILTER_SOURCE, ORDER_ALF, ORDER_ATTACK, DELETE_POKEMON, PUT_POKEMON } from './actions'
 
 export const initialState = {
     pokemon: [],
@@ -38,6 +38,11 @@ const rootReducer = (state = initialState, actions) => {
             return {
                 ...state,
                 allPokemons: actions.payload
+            }
+        case PUT_POKEMON:
+            return {
+                ...state,
+                pokemon: actions.payload
             }
         // case FILTER_TYPE:
         //     console.log(state.allPokemons);

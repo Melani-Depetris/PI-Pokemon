@@ -11,6 +11,8 @@ export const POST_POKEMON = 'POST_POKEMON';
 
 export const DELETE_POKEMON = 'DELETE_POKEMON';
 
+export const PUT_POKEMON = 'PUT_POKEMON';
+
 export const FILTER_TYPE = 'FILTER_TYPE';
 export const FILTER_SOURCE = 'FILTER_SOURCE';
 export const ORDER_ALF = 'ORDER_ALF';
@@ -82,7 +84,7 @@ export const postPokemon = (pokemonData) => {
         try {
             const { data } = await axios.post(`${URL}pokemons`, pokemonData)
             console.log(data);
-            alert('Pokémon capturado! 🥰')
+            alert('Captured Pokémon! 🥰')
 
             return dispatch({
                 type: POST_POKEMON,
@@ -99,7 +101,7 @@ export const postPokemon = (pokemonData) => {
 export const deletePokmeon = (id) => {
 
     return async (dispatch) => {
-        
+
         try {
             const { data } = await axios.delete(`${URL}pokemons/${id}`)
 
@@ -111,6 +113,24 @@ export const deletePokmeon = (id) => {
             window.alert(error.response.data)
         }
     }
+}
+
+export const putPokemon = () => {
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.put(`${URL}pokemons/`,)
+
+            return dispatch({
+                type: PUT_POKEMON,
+                payload: data
+            })
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
 }
 
 export const filterType = (value) => {

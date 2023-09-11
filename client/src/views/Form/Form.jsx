@@ -16,7 +16,6 @@ const Form = () => {
         dispatch(getTypes())
     }, [dispatch])
 
-
     const [pokemonData, setPokemonData] = useState({
         name: '',
         image: '',
@@ -49,7 +48,7 @@ const Form = () => {
         event.preventDefault(); //le quita el evento de refresh
 
         if (errors.e1 || errors.e2 || errors.e3 || errors.e4 || errors.e5 || errors.e6 || errors.e7 || errors.e8 || errors.e) {
-            alert('Este Pokémon no pudo ser capturado! 🥹')
+            alert('This Pokémon could not be captured! 🥹')
         } else {
             dispatch(postPokemon(pokemonData))
             // alert('Pokémon capturado! 🥰')
@@ -69,7 +68,7 @@ const Form = () => {
     };
 
 
-    const [typesSelect, setTypesSelect] = useState([])
+    // const [typesSelect, setTypesSelect] = useState([])
 
     const handleChangeSelect = (event) => {
 
@@ -79,7 +78,8 @@ const Form = () => {
                 types: [...pokemonData.types, event.target.value]
             })
         } else {
-            alert('Solo puede pertenecer a 2 types de Pokemons')
+            pokemonData.types.includes(event.target.value) ? alert('Has already been selected') :
+            alert('Can belong to 2 types of Pokemon')
         }
 
         setErrors(validation({
@@ -88,6 +88,7 @@ const Form = () => {
         }))
         // setTypesSelect({ ...typesSelect, [event.target.name]: event.target.value})
     }
+
     console.log(pokemonData.types);
 
     const handleCancel = (event) => {
@@ -150,8 +151,8 @@ const Form = () => {
 
                 {errors.e8 ? <p className={styles.errors} >{errors.e8}</p> : <></>}
 
-                <label for="types">Selecciona que tipo de pokemon es:</label>
-                <select className={styles.selectTypes} onChange={(event) => [handleChangeSelect(event), setTypesSelect(event)]} value={typesSelect} name='types'>
+                <label htmlFor="types">Selecciona que tipo de pokemon es:</label>
+                <select className={styles.selectTypes} onChange={handleChangeSelect} name='types'>
 
                     <option>Select Type</option>
                     {typesBD.map((type, index) => (
