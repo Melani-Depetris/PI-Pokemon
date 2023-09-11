@@ -43,6 +43,6 @@ const postPokemonController = async (name, image, life, attack, defense, speed, 
         return result
 
     }
-    throw Error('Faltan datos')
+    throw Error('Missing data')
 }
 module.exports = postPokemonController;
