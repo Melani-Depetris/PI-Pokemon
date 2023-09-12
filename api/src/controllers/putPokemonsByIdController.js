@@ -2,7 +2,7 @@ const { Pokemon, Type } = require('../db');
 
 const putPokemonsByIdController = async (id, name, image, life, attack, defense, speed, height, weight, types) => {
 
-    const pokemonUpdated = await Pokemon.update({
+    await Pokemon.update({
 
         name: name,
         image: image,
@@ -55,6 +55,9 @@ const putPokemonsByIdController = async (id, name, image, life, attack, defense,
     console.log(pokemonUpdate);
 
     // const pokemon = (pokemonUpdated !== 0) ? pokemonUpdated : 'No update'
+
+    pokemonUpdate.dataValues.source = 'DB';
+
     return pokemonUpdate
 }
 

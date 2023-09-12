@@ -1,11 +1,12 @@
 const deletePokemonsByIdController = require('../controllers/deletePokemonsByIdController');
 
-const deletePokemonsById = (req, res) => {
+const deletePokemonsById = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const pokemonDel = deletePokemonsByIdController(id)
-        res.status(200).json(pokemonDel)
+        const pokemonDel = await deletePokemonsByIdController(id)
+        console.log(pokemonDel);
+        res.status(200).send(pokemonDel)
 
     } catch (error) {
         res.status(500).send(error.message)

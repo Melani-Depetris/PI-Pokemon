@@ -2,7 +2,7 @@ const { Pokemon, Type } = require('../db')
 
 const detelePokemonsById = async (id) => {
 
-    await Pokemon.destroy({
+    const pokemonDel = await Pokemon.destroy({
         where: {
             id: id
         },
@@ -12,9 +12,11 @@ const detelePokemonsById = async (id) => {
         }]
     });
 
-    const pokemons = Pokemon.findAll()
+    // const pokemons = Pokemon.findAll()
 
-    return pokemons
+    const pokemon = (pokemonDel !== 0) ? 'Deleted Pokémon!' : 'Pokemón Undefined' 
+
+    return pokemon
 
 }
 module.exports = detelePokemonsById
