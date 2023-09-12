@@ -47,7 +47,7 @@ const Update = ({ isOpen, onClose, pokemon }) => {
         if (event.target.value !== 'Select Type' && !pokemonData.types.includes(event.target.value) && pokemonData.types.length < 2) {
             setPokemonData({
                 ...pokemonData,
-                types: [...pokemonData.types, event.target.value]
+                types: [...pokemonData.types, {name: event.target.value}]
             })
         } else {
             pokemonData.types.includes(event.target.value) ? alert('Has already been selected') :
@@ -61,6 +61,9 @@ const Update = ({ isOpen, onClose, pokemon }) => {
         // setTypesSelect({ ...typesSelect, [event.target.name]: event.target.value})
     }
 
+    console.log(pokemonData.types)
+
+
     const handleCancel = (event) => {
         event.preventDefault()
 
@@ -73,6 +76,10 @@ const Update = ({ isOpen, onClose, pokemon }) => {
 
     const handleUpdate = () => {
         dispatch(putPokemon(pokemonData))
+        if(pokemon.name !== pokemonData.name || pokemon.image !== pokemonData.image || pokemon.life !== pokemonData.life || pokemon.attack !== pokemonData.attack || pokemon.defense !== pokemonData.defense || pokemon.speed !== pokemonData.speed || pokemon.height !== pokemonData.height || pokemon.weight !== pokemonData.weight || pokemon.types.name !== pokemonData.types.name){alert('Updated Pokémon! 👍🏼')}
+        setTimeout(
+            onClose(), 1000
+        )
     }
 
     return isOpen ? (
@@ -124,13 +131,16 @@ const Update = ({ isOpen, onClose, pokemon }) => {
             <select className={styles.selectTypes} onChange={handleChangeSelect} name='types'>
 
                 <option>Select Type</option>
-                {typesBD.map((type, index) => (
-                    <option key={index} value={type.name} >
-                        {type.name}
-                    </option>
-                ))}
+                {
+                    typesBD.map((type, index) => (
+                        <option key={index} value={type.name} >
+                            {type.name}
+                        </option>
+                    ))
+                }
 
             </select>
+
 
             {
                 pokemonData.types.map(e =>
@@ -141,10 +151,11 @@ const Update = ({ isOpen, onClose, pokemon }) => {
                     </div>
                 ))
             }
+
             {errors.e9 ? <p className={styles.errors} >{errors.e9}</p> : <></>}
 
 
-            <button onClick={handleUpdate}>
+            <button onClick={handleUpdate} type='submit'>
                 Update
             </button>
 

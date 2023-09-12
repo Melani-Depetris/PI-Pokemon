@@ -34,11 +34,6 @@ const rootReducer = (state = initialState, actions) => {
                 ...state,
                 types: actions.payload
             }
-        case DELETE_POKEMON:
-            return {
-                ...state,
-                allPokemons: actions.payload
-            }
         case PUT_POKEMON:
             return {
                 ...state,
@@ -67,7 +62,7 @@ const rootReducer = (state = initialState, actions) => {
         //         allPokemons: pokemonsWithSourceType
         //     };
 
-
+//
 
         case FILTER_TYPE:
 
@@ -75,7 +70,7 @@ const rootReducer = (state = initialState, actions) => {
 
             if (state.pokemonsFilterWithSource.length) {
 
-                const pokemonsWithTypeSource = state.pokemonsFilterWithSource.filter(pokemon => pokemon.type.name === actions.payload)
+                const pokemonsWithTypeSource = state.pokemonsFilterWithSource.filter(pokemon => pokemon.types.some(type => type.name === actions.payload))
 
                 updatedStateWithType.allPokemons = pokemonsWithTypeSource;
             } else {

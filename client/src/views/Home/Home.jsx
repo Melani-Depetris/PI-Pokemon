@@ -21,8 +21,7 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const dispatch = useDispatch() // Para poder hacer dispatch
 
-    // El useEffect carga los pokémones desde la API tan pronto como el componente Home se monte.
-    //Como el array de dependencias está vacío, este efecto solo se ejecutará una vez al montar el componente.
+    // Cargo los pokémones.
     useEffect(() => {
 
         dispatch(getAllPokemons())
@@ -42,7 +41,7 @@ const Home = () => {
     // Lógica para paginación
     const totalPages = Math.ceil(pokemons.length / POKEMONS_PER_PAGE); //Didido la cantidad de pokemons por la cantidad de pokemons por pagina y lo redondeo. Y me da la cantidad de paginas.
     const startIndex = (currentPage - 1) * POKEMONS_PER_PAGE; // currentPage es el numero de la pagina actual. 
-    const visiblePokemons = pokemons.slice(startIndex, startIndex + POKEMONS_PER_PAGE); // Para obtener un subconjunto de elementos de un array. En este caso, estamos obteniendo los pokémones que serán visibles en la página actual de la paginación.
+    const visiblePokemons = pokemons.slice(startIndex, startIndex + POKEMONS_PER_PAGE); // Para obtener un subconjunto de elementos de un array. En este caso, obtengo los pokémones que serán visibles en la página actual de la paginación.
 
     const goToPage = (pageNumber) => {
         setCurrentPage(pageNumber);

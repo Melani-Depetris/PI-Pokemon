@@ -22,14 +22,15 @@ const SearchBar = () => {
         // let inputValue = event.target.value
         // setName(inputValue)
     }
-    
+
     console.log(name);
 
-    const onSearch = async (name) => {
-
-        dispatch(getByName(name))
-        
+    const onSearch = (name) => {
         navigate('/home')
+        setTimeout(() => dispatch(getByName(name)), '1000')
+
+
+
 
         // try {
         //     const response = (await axios(`${URL}pokemons/name/?name=${name}`)).data
@@ -40,7 +41,7 @@ const SearchBar = () => {
 
         // }
     }
-    
+
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') { // Realizar la búsqueda cuando se presiona Enter
             onSearch(name);
@@ -51,7 +52,7 @@ const SearchBar = () => {
     return (
         <div >
             <div className={styles.searchContainer}>
-                
+
                 <input className={styles.searchInput} name="myInput" type='search' value={name} onChange={handleChange} placeholder='Search a pokemon' onKeyPress={handleKeyPress} />
 
                 <button onClick={() => { onSearch(name); setName('') }} className={styles.searchButton}>

@@ -100,26 +100,25 @@ export const postPokemon = (pokemonData) => {
 
 export const deletePokmeon = (id) => {
 
-    return async (dispatch) => {
+    return async () => {
 
         try {
             const { data } = await axios.delete(`${URL}pokemons/${id}`)
 
-            return dispatch({
-                type: DELETE_POKEMON,
-                payload: data
-            })
+            console.log(data);
+            alert(data)
+    
         } catch (error) {
             window.alert(error.response.data)
         }
     }
 }
 
-export const putPokemon = () => {
+export const putPokemon = (pokemonData) => {
 
     return async (dispatch) => {
         try {
-            const { data } = await axios.put(`${URL}pokemons/`,)
+            const { data } = await axios.put(`${URL}pokemons/`, pokemonData)
 
             return dispatch({
                 type: PUT_POKEMON,

@@ -22,8 +22,9 @@ const About = () => {
 
                 <h3>Mi último proyecto</h3>
                 <br />
-
-                <button className={styles.buttonsAbout} >Ir</button>
+                <a href='https://pi-rick-and-morty-nu.vercel.app/' target="_blank" rel="noopener noreferrer">
+                    <button className={styles.buttonsAbout} >Ir</button>
+                </a>
 
                 <br />
 
