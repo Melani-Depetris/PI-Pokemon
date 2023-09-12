@@ -2,13 +2,19 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_MI_POKEDEX } = process.env;
 
 const sequelize = new Sequelize(
-   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`,
+   // `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`
+   DB_MI_POKEDEX,
    {
       logging: false, // set to console.log to see the raw SQL queries
       native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+      dialectOptions: {
+         ssl: {
+            require: true
+         }
+      }
    }
 );
 const basename = path.basename(__filename);
@@ -44,8 +50,8 @@ const { Pokemon, Type } = sequelize.models;
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-Pokemon.belongsToMany(Type, { through: 'Pokemon_Type', timestamps: false  });
-Type.belongsToMany(Pokemon, { through: 'Pokemon_Type', timestamps: false  });
+Pokemon.belongsToMany(Type, { through: 'Pokemon_Type', timestamps: false });
+Type.belongsToMany(Pokemon, { through: 'Pokemon_Type', timestamps: false });
 
 module.exports = {
    ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
