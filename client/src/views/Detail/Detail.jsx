@@ -77,37 +77,43 @@ const Detail = () => {
                                 detail.source === 'DB'
                                     ?
 
-                                    <div>
-                                        <div className={styles.delete} >
-                                            <button onClick={openDelete} className={styles.buttonDelete}>
-                                                <img src={pokebola} className={styles.imageDelete} />
-                                            </button>
-                                            <Delete isOpen={deleteIsOpen} onClose={closeDelete} id={id} />
-                                        </div>
 
-                                        <div>
-                                            <button onClick={openUpdate} className={styles.buttonUpdate}>
-                                                Edit
-                                            </button>
-                                            <Update isOpen={updateIsOpen} onClose={closeUpdate} pokemon={detail} />
-                                        </div>
-
+                                    <div className={styles.delete} >
+                                        <button onClick={openDelete} className={styles.buttonDelete}>
+                                            <img src={pokebola} className={styles.imageDelete} />
+                                        </button>
+                                        <Delete isOpen={deleteIsOpen} onClose={closeDelete} id={id} />
                                     </div>
+
 
                                     : null
                             }
+                            {!updateIsOpen ?
+                                <div className={styles.containerh3}>
+                                    <h3>Id: <span>{detail.id}</span> </h3>
+                                    <h3>Name: <span>{detail.name}</span> </h3>
+                                    <h3>Life: <span>{detail.life}</span> </h3>
+                                    <h3>Attack: <span>{detail.attack}</span> </h3>
+                                    <h3>Defense: <span>{detail.defense}</span> </h3>
+                                    <h3>Speed: <span>{detail.speed}</span> </h3>
+                                    <h3>Height: <span>{detail.height}</span> </h3>
+                                    <h3>Weight: <span>{detail.weight}</span> </h3>
+                                    <h3>Types: <span>{detail.types?.map(e => <p>{e.name}</p>)}</span> </h3>
+                                </div>
+                                : null
+                            }
 
-                            <div className={styles.containerh3}>
-                                <h3>Id: <span>{detail.id}</span> </h3>
-                                <h3>Name: <span>{detail.name}</span> </h3>
-                                <h3>Life: <span>{detail.life}</span> </h3>
-                                <h3>Attack: <span>{detail.attack}</span> </h3>
-                                <h3>Defense: <span>{detail.defense}</span> </h3>
-                                <h3>Speed: <span>{detail.speed}</span> </h3>
-                                <h3>Height: <span>{detail.height}</span> </h3>
-                                <h3>Weight: <span>{detail.weight}</span> </h3>
-                                <h3>Types: <span>{detail.types?.map(e => <p>{e.name}</p>)}</span> </h3>
-                            </div>
+                            {
+                                detail.source === 'DB'
+                                    ?
+                                    <div>
+                                        <button onClick={openUpdate} className={styles.buttonUpdate}>
+                                            EDIT
+                                        </button>
+                                        <Update isOpen={updateIsOpen} onClose={closeUpdate} pokemon={detail} />
+                                    </div>
+                                    : null
+                            }
 
                         </div>
 

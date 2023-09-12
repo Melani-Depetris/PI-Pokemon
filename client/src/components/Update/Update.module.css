@@ -1,7 +1,19 @@
 .updateContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 300px;
-    height: 700px;
-    background-color: rgb(174, 29, 29);
-    position: absolute;
-    z-index: 8;
+    height: 590px;
+    background-color: rgba(0, 0, 0, 0.348);
+    z-index: 3;
+}
+
+.input{
+    color: #fff
+}
+
+.label{
+    color: #e20df144;
+    text-shadow: 1px 0px 0px #fc049d;
 }
