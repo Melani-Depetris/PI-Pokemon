@@ -47,7 +47,7 @@ const Form = () => {
 
         event.preventDefault(); //le quita el evento de refresh
 
-        if (errors.e1 || errors.e2 || errors.e3 || errors.e4 || errors.e5 || errors.e6 || errors.e7 || errors.e8 || errors.e) {
+        if (errors.e1 || errors.e2 || errors.e3 || errors.e4 || errors.e5 || errors.e6 || errors.e7 || errors.e8 || errors.e9) {
             alert('This Pokémon could not be captured! 🥹')
         } else {
             dispatch(postPokemon(pokemonData))

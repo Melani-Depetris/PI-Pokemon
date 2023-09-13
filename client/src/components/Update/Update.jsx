@@ -47,7 +47,7 @@ const Update = ({ isOpen, onClose, pokemon }) => {
         if (event.target.value !== 'Select Type' && !pokemonData.types.includes(event.target.value) && pokemonData.types.length < 2) {
             setPokemonData({
                 ...pokemonData,
-                types: [...pokemonData.types, {name: event.target.value}]
+                types: [...pokemonData.types, { name: event.target.value }]
             })
         } else {
             pokemonData.types.includes(event.target.value) ? alert('Has already been selected') :
@@ -76,7 +76,7 @@ const Update = ({ isOpen, onClose, pokemon }) => {
 
     const handleUpdate = () => {
         dispatch(putPokemon(pokemonData))
-        if(pokemon.name !== pokemonData.name || pokemon.image !== pokemonData.image || pokemon.life !== pokemonData.life || pokemon.attack !== pokemonData.attack || pokemon.defense !== pokemonData.defense || pokemon.speed !== pokemonData.speed || pokemon.height !== pokemonData.height || pokemon.weight !== pokemonData.weight || pokemon.types.name !== pokemonData.types.name){alert('Updated Pokémon! 👍🏼')}
+        if (pokemon.name !== pokemonData.name || pokemon.image !== pokemonData.image || pokemon.life !== pokemonData.life || pokemon.attack !== pokemonData.attack || pokemon.defense !== pokemonData.defense || pokemon.speed !== pokemonData.speed || pokemon.height !== pokemonData.height || pokemon.weight !== pokemonData.weight || pokemon.types.name !== pokemonData.types.name) { alert('Updated Pokémon! 👍🏼') }
         setTimeout(
             onClose(), 1000
         )
@@ -85,49 +85,65 @@ const Update = ({ isOpen, onClose, pokemon }) => {
     return isOpen ? (
         <div className={styles.updateContainer}>
 
-            <label className={styles.label}>Name </label>
-            <input className={styles.input} onChange={handleChange} value={pokemonData.name} name='name' placeholder='Name' />
+            <div className={styles.containerDate}>
+                <label className={styles.label}>Name: </label>
+                <input className={styles.input} onChange={handleChange} value={pokemonData.name} name='name' placeholder='Name' />
+            </div>
 
             {errors.e1 ? <p className={styles.errors} >{errors.e1}</p> : <></>}
 
-
-            <label className={styles.label}>Image: </label>
-            <input className={styles.input} onChange={handleChange} value={pokemonData.image} name='image' placeholder='Paste the image url' />
+            <div className={styles.containerDate}>
+                <label className={styles.label}>Image: </label>
+                <input className={styles.input} onChange={handleChange} value={pokemonData.image} name='image' placeholder='Paste the image url' />
+            </div>
 
             {errors.e2 ? <p className={styles.errors} >{errors.e2}</p> : <></>}
 
-            <label className={styles.label}>Life: </label>
-            <input className={styles.input} onChange={handleChange} value={pokemonData.life} name='life' placeholder='Life' />
+            <div className={styles.containerDate}>
+                <label className={styles.label}>Life: </label>
+                <input className={styles.input} onChange={handleChange} value={pokemonData.life} name='life' placeholder='Life' />
+            </div>
 
             {errors.e3 ? <p className={styles.errors} >{errors.e3}</p> : <></>}
 
-            <label className={styles.label}>Attack: </label>
-            <input className={styles.input} onChange={handleChange} value={pokemonData.attack} name='attack' placeholder='Attack' />
+
+            <div className={styles.containerDate}>
+                <label className={styles.label}>Attack: </label>
+                <input className={styles.input} onChange={handleChange} value={pokemonData.attack} name='attack' placeholder='Attack' />
+            </div>
+
 
             {errors.e4 ? <p className={styles.errors} >{errors.e4}</p> : <></>}
 
-
-            <label className={styles.label}>Defense: </label>
-            <input className={styles.input} onChange={handleChange} value={pokemonData.defense} name='defense' placeholder='Defense' />
+            <div className={styles.containerDate}>
+                <label className={styles.label}>Defense: </label>
+                <input className={styles.input} onChange={handleChange} value={pokemonData.defense} name='defense' placeholder='Defense' />
+            </div>
 
             {errors.e5 ? <p className={styles.errors} >{errors.e5}</p> : <></>}
 
-            <label className={styles.label}>Speed: </label>
-            <input className={styles.input} onChange={handleChange} value={pokemonData.speed} name='speed' placeholder='Speed' />
+            <div className={styles.containerDate}>
+                <label className={styles.label}>Speed: </label>
+                <input className={styles.input} onChange={handleChange} value={pokemonData.speed} name='speed' placeholder='Speed' />
+            </div>
 
             {errors.e6 ? <p className={styles.errors} >{errors.e6}</p> : <></>}
 
-            <label className={styles.label}>Height: </label>
-            <input className={styles.input} onChange={handleChange} value={pokemonData.height} name='height' placeholder='Height' />
+            <div className={styles.containerDate}>
+                <label className={styles.label}>Height: </label>
+                <input className={styles.input} onChange={handleChange} value={pokemonData.height} name='height' placeholder='Height' />
+            </div>
 
             {errors.e7 ? <p className={styles.errors} >{errors.e7}</p> : <></>}
 
-            <label className={styles.label}>Weight: </label>
-            <input className={styles.input} onChange={handleChange} value={pokemonData.weight} name='weight' placeholder='Weight' />
+            <div className={styles.containerDate}>
+                <label className={styles.label}>Weight: </label>
+                <input className={styles.input} onChange={handleChange} value={pokemonData.weight} name='weight' placeholder='Weight' />
+            </div>
 
             {errors.e8 ? <p className={styles.errors} >{errors.e8}</p> : <></>}
 
-            <label htmlFor="types" >Selecciona que tipo de pokemon es:</label>
+            <label htmlFor="types" className={styles.label} >Types:</label>
             <select className={styles.selectTypes} onChange={handleChangeSelect} name='types'>
 
                 <option>Select Type</option>
@@ -141,27 +157,33 @@ const Update = ({ isOpen, onClose, pokemon }) => {
 
             </select>
 
+            <div className={styles.containerCancel}>
 
-            {
-                pokemonData.types.map(e =>
-                (
-                    <div key={e.name}>
-                        <p>{e.name}</p>
-                        <button value={e.name} onClick={handleCancel}> x </button>
-                    </div>
-                ))
-            }
+                {
+                    pokemonData.types.map(e =>
+                    (
+                        <div key={e.name} className={styles.containerTpeCancel}>
+                            <p className={styles.typeP}>{e.name}</p>
+                            <button value={e.name} onClick={handleCancel} className={styles.buttonCancel}> x </button>
+                        </div>
+                    ))
+
+                }
+            </div>
+
 
             {errors.e9 ? <p className={styles.errors} >{errors.e9}</p> : <></>}
 
+            <div className={styles.buttonsContainer}>
 
-            <button onClick={handleUpdate} type='submit'>
-                Update
-            </button>
+                <button onClick={handleUpdate} className={styles.buttons}>
+                    Update
+                </button>
 
-            <button onClick={onClose} className={styles.buttons}>
-                Exit
-            </button>
+                <button onClick={onClose} className={styles.buttons}>
+                    Exit
+                </button>
+            </div>
 
 
         </div>

@@ -27,7 +27,7 @@ const SearchBar = () => {
 
     const onSearch = (name) => {
         navigate('/home')
-        setTimeout(() => dispatch(getByName(name)), '1000')
+        setTimeout(() => dispatch(getByName(name)), '400')
 
 
 

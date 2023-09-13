@@ -1,16 +1,16 @@
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import Filters from "../../components/Filters/Filters";
+
 const URL = import.meta.env.VITE_REACT_APP_URL_BACKEND
+import axios from 'axios';
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import styles from './Home.module.css'
 
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getAllPokemons } from '../../redux/actions'
 
-const POKEMONS_PER_PAGE = 12; // Cantidad de pokémones por página
 
 
 const Home = () => {
@@ -39,8 +39,13 @@ const Home = () => {
     }, [dispatch]);
 
     // Lógica para paginación
-    const totalPages = Math.ceil(pokemons.length / POKEMONS_PER_PAGE); //Didido la cantidad de pokemons por la cantidad de pokemons por pagina y lo redondeo. Y me da la cantidad de paginas.
+
+    const POKEMONS_PER_PAGE = 12; // Cantidad de pokémones por página
+
+    const totalPages = Math.ceil(pokemons.length / POKEMONS_PER_PAGE); //Divido la cantidad de pokemons por la cantidad de pokemons por pagina y lo redondeo. Y me da la cantidad de paginas.
+
     const startIndex = (currentPage - 1) * POKEMONS_PER_PAGE; // currentPage es el numero de la pagina actual. 
+
     const visiblePokemons = pokemons.slice(startIndex, startIndex + POKEMONS_PER_PAGE); // Para obtener un subconjunto de elementos de un array. En este caso, obtengo los pokémones que serán visibles en la página actual de la paginación.
 
     const goToPage = (pageNumber) => {
@@ -51,11 +56,17 @@ const Home = () => {
         <div className={styles.homeContainer}>
 
             <div className={styles.buttonsContainer}>
-                {Array.from({ length: totalPages }, (_, index) => (
-                    <button className={styles.buttonPage} key={index} onClick={() => goToPage(index + 1)}>
-                        {index + 1}
-                    </button>
-                ))}
+
+                {
+                    Array.from({ length: totalPages }, (_, index) => (
+
+                        <button className={styles.buttonPage} key={index} onClick={() => goToPage(index + 1)}>
+                            {index + 1}
+                        </button>
+
+                    ))
+                }
+
             </div>
 
             <div className={styles.containerFiltersCards}>

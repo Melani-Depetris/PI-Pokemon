@@ -57,20 +57,21 @@ const Detail = () => {
 
     return (
         <div className={styles.DetailContainer}>
-            <img src={house} className={styles.DetailContainerHouse} />
 
             {
                 isLoading ? <div className={styles.loading} /> :
 
 
-                    <div>
+                    <div className={styles.containerInfo}>
                         {/* <Link to='/home'>
                             <img src={flecha} width='40px' />
                         </Link> */}
 
+                        <div className={styles.containerImg}>
+                            <img src={house} className={styles.DetailContainerHouse} />
 
-
-                        <img src={detail.image} alt={detail.name} className={styles.pokemonImg} />
+                            <img src={detail.image} alt={detail.name} className={styles.pokemonImg} />
+                        </div>
 
                         <div className={styles.DetailPokemon}>
                             {
@@ -107,9 +108,9 @@ const Detail = () => {
                                 detail.source === 'DB'
                                     ?
                                     <div>
-                                        <button onClick={openUpdate} className={styles.buttonUpdate}>
+                                        {!updateIsOpen ? <button onClick={openUpdate} className={styles.buttonUpdate}>
                                             EDIT
-                                        </button>
+                                        </button> : <></>}
                                         <Update isOpen={updateIsOpen} onClose={closeUpdate} pokemon={detail} />
                                     </div>
                                     : null

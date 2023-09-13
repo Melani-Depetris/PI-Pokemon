@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Handjet:wght@500&family=Ubuntu:wght@300&display=swap');
+
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-title]:after {
+    content: attr(data-title);
+    background-color: #ff71d588;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Chakra Petch', sans-serif;
+    position: absolute;
+    padding: 3px 20px;
+    bottom: -1.6em;
+    left: 100%;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #dc28f4;
+    opacity: 0;
+    /* border: 1px solid #111111; */
+    z-index: 99999;
+    visibility: hidden;
+    border-radius: 6px;
+
+}
+[data-title] {
+    position: relative;
+}
+
 .navBarContainer {
     width: 100vw;
     height: 30px;

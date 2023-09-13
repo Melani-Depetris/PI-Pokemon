@@ -23,27 +23,27 @@ const NavBar = () => {
   return (
     <div className={styles.navBarContainer}>
 
-      <button className={styles.navBarIconHome} onClick={handleHome}>
-        <img src={logo} className={styles.navBarImagen} alt="Logo" title="Home" />
+      <button className={styles.navBarIconHome} onClick={handleHome} data-title="Home">
+        <img src={logo} className={styles.navBarImagen} alt="Logo" />
       </button>
 
       <SearchBar />
 
       <Link to='/form'>
-        <button className={styles.navBarIconForm}>
-        <img src={pokebola} className={styles.navBarImagen} alt="Form" title="Form" />
+        <button className={styles.navBarIconForm} data-title="Form">
+          <img src={pokebola} className={styles.navBarImagen} alt="Form" />
         </button>
       </Link>
 
       <Link to='/about'>
-        <button className={styles.navBarIconAbout}>
-          <img src={mujer} className={styles.navBarImagen} alt="About" title="About" />
+        <button className={styles.navBarIconAbout} data-title="About">
+          <img src={mujer} className={styles.navBarImagen} alt="About" />
         </button>
       </Link>
 
       <Link to="/">
-        <button className={styles.navBarIconExit}>
-          <img src={exit} className={styles.navBarImagen} alt="Exit" title="Exit" />
+        <button className={styles.navBarIconExit} data-title="Exit">
+          <img src={exit} className={styles.navBarImagen} alt="Exit" />
         </button>
       </Link>
 
