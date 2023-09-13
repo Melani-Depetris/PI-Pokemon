@@ -1,13 +1,13 @@
-.filtersConteiner{
+.filtersConteiner {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 80px;
     gap: 30px;
+    padding: 0 50px 0 50px;
 }
 
-.buttonsFilter{
+.buttonsFilter {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -17,4 +17,3 @@
     padding: 10px;
     text-align: center;
 }
-

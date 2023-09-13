@@ -6,17 +6,17 @@
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    overflow: auto;
-
+    height: 100%;
 }
 
 .buttonsContainer {
-    
+
     display: flex;
     justify-content: center;
     padding: 10px;
     gap: 10px;
     margin-top: 70px;
+    height: 30px;
 }
 
 .buttonPage {
@@ -41,16 +41,16 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 20%;
     height: 400px;
     border-radius: 0 10px 10px 0;
     background-color: #9d44c063;
-    padding-bottom: 80px;
+    padding: 20px 0 20px 0;
+    margin-top: 20px;
+
 }
 
 .containerCards {
     display: flex;
     width: 80%;
-margin-left: 300px;
-height: 86vh;
+    margin-left: 300px;
 }
